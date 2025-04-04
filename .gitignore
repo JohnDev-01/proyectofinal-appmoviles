@@ -1,0 +1,123 @@
+# .NET Core / .NET MAUI
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+*.vcxproj.user
+*.pidb
+*.ide
+
+# Mac-specific files
+.DS_Store
+
+# Windows-specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Xamarin/MAUI specific
+*.apk
+*.ap_
+*.aab
+*.dex
+*.keystore
+*.pfx
+*.db
+*.mdb
+*.sqlite
+*.sqlite3
+*.db3
+*.bak
+*.cache
+*.log
+*.dll
+*.exe
+*.zip
+*.nupkg
+*.apk
+*.ipa
+
+# iOS build
+build/
+*.app/
+*.xcuserstate
+*.xcworkspace
+*.xcuserdata
+*.mode1v3
+*.mode2v3
+*.pbxuser
+
+# Android build
+platforms/android/app/build/
+platforms/android/.gradle/
+.gradle/
+local.properties
+*.iml
+
+# VS for Mac
+.vscode/
+.idea/
+.vscode-test/
+*.code-workspace
+
+# Visual Studio
+.vs/
+*.dbmdl
+*.psess
+*.vsp
+*.vspx
+*.vspscc
+*.vssscc
+
+# MAUI generated assets
+**/Resources/**/*.designer.cs
+**/obj/**/*.g.cs
+**/obj/**/*.g.i.cs
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swn
+
+# User secrets
+secrets.json
+*.user
+
+# Config files
+appsettings.*.json
+
+# JetBrains IDEs
+.idea/
+
+# Test results
+TestResult*/  
+*.trx  
+*.coverage  
+*.coveragexml
+
+# Output
+*.publish/
+
+# Rider
+.idea/
+*.sln.iml
+
+# DotNet CLI artifacts
+artifacts/
+
+# Node (if you use npm/yarn for frontend inside your MAUI)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
