@@ -8,7 +8,7 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
-
+	// test
 	private void OnCounterClicked(object sender, EventArgs e)
 	{
 		count++;
