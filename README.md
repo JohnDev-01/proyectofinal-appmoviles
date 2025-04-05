@@ -1,4 +1,5 @@
-# 📱 Aplicación Oficial de la Defensa Civil Dominicana 🇩🇴  
+# 📱 Aplicación Oficial de la Defensa Civil Dominicana 🇩🇴
+
 **Proyecto Final - ITLA / Desarrollo de Aplicaciones Móviles**  
 **Cuatrimestre 1-2025**  
 **Plataforma:** .NET MAUI
@@ -16,7 +17,6 @@
 
 Aplicación móvil desarrollada con **.NET MAUI** para la **Defensa Civil Dominicana**, pensada para ofrecer acceso inmediato a recursos vitales, noticias, servicios, albergues y herramientas de gestión ciudadana. La app también permite a los usuarios reportar situaciones de emergencia, consultar medidas preventivas y registrarse como voluntarios.
 
-
 ---
 
 ## 🛠 Tecnologías Utilizadas
@@ -33,11 +33,11 @@ Aplicación móvil desarrollada con **.NET MAUI** para la **Defensa Civil Domini
 
 ## 🧑‍💻 Desarrolladores
 
-| Nombre                | Matrícula | 
-|-----------------------|-----------|
-| John Kerlin Silvestre | 2023-1192 |
-
-
+| Nombre                  | Matrícula   |
+| ----------------------- | ----------- |
+| John Kerlin Silvestre   | 2023-1192   |
+| ----------------------- | ----------- |
+| Cristal O. Hernandez    | 2023-0985   |
 
 ---
 
