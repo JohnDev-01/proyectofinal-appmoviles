@@ -36,6 +36,7 @@ Aplicación móvil desarrollada con **.NET MAUI** para la **Defensa Civil Domini
 | Nombre                | Matrícula | 
 |-----------------------|-----------|
 | John Kerlin Silvestre | 2023-1192 |
+| Eliezer Palacio Ramos | 2023-1009 |
 
 
 
