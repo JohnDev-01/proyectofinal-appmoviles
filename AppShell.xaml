@@ -4,12 +4,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:proyectofinal_appmoviles"
+    xmlns:public="clr-namespace:proyectofinal_appmoviles.Views.Public"
+    xmlns:private="clr-namespace:proyectofinal_appmoviles.Views.Private"
     Shell.FlyoutBehavior="Flyout"
     Title="proyectofinal_appmoviles">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Inicio" Icon="dotnet_bot.png">
+        <ShellContent Route="inicio" ContentTemplate="{DataTemplate public:InicioPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Perfil" Icon="user.png">
+        <ShellContent Route="perfil" ContentTemplate="{DataTemplate private:PerfilPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Ajustes" Icon="settings.png">
+        <ShellContent Route="ajustes" ContentTemplate="{DataTemplate private:AjustesPage}" />
+    </FlyoutItem>
 
 </Shell>
