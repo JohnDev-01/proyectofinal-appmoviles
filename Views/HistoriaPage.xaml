@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="proyectofinal_appmoviles.Views.HistoriaPage"
+    Title="Historia">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <!-- Título de la Página -->
+            <Label Text="Historia de la Defensa Civil" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" />
+
+            <!-- Texto informativo de la historia -->
+            <Label Text="La Defensa Civil se creó con el objetivo de prevenir y responder ante desastres. Con una trayectoria que abarca décadas, ha evolucionado para incluir a la comunidad en la gestión de emergencias y la protección civil. [Puedes ampliar el texto con más datos relevantes y resumidos]." 
+                   FontSize="16" 
+                   TextColor="Black" 
+                   HorizontalOptions="FillAndExpand"
+                   LineBreakMode="WordWrap" />
+
+            <!-- Sección del video -->
+            <Label Text="Video: La historia de la Defensa Civil" 
+                   FontSize="20" 
+                   HorizontalOptions="Center" />
+
+            <!-- WebView para embeber el video de YouTube -->
+            <WebView x:Name="YoutubeVideo" 
+                     HeightRequest="300"
+                     WidthRequest="500"
+                     HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

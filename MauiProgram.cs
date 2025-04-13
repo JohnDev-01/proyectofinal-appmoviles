@@ -19,6 +19,14 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
+		// Register services
+		builder.Services.AddSingleton<Services.AuthService>();
+		
+		// Register ViewModels
+		builder.Services.AddTransient<ViewModels.InicioViewModel>();
+		builder.Services.AddTransient<ViewModels.PerfilViewModel>();
+		builder.Services.AddTransient<ViewModels.AjustesViewModel>();
+
 		return builder.Build();
 	}
 }
