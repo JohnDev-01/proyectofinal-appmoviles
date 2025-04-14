@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectofinal_appmoviles.Views.LoginChoicePage">
+    <VerticalStackLayout Padding="30"
+                         Spacing="20"
+                         VerticalOptions="Center">
+        <!-- Título principal -->
+        <Label Text="Controla tus dispositivos"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="Black" />
+        <!-- Imagen o ícono central -->
+        <Image Source="logodefensa.jpeg"
+               HeightRequest="120"
+               WidthRequest="120"
+               HorizontalOptions="Center"
+               Aspect="AspectFit" />
+        <!-- Texto descriptivo -->
+        <Label Text="Toma el control de tu experiencia de forma sencilla. Elige cómo deseas continuar."
+               FontSize="14"
+               HorizontalTextAlignment="Center"
+               TextColor="#666" />
+        <!-- Botón iniciar sesión -->
+        <Button Text="Iniciar sesión"
+                BackgroundColor="#FF7F11"
+                TextColor="White"
+                CornerRadius="25"
+                HeightRequest="50"
+                FontAttributes="Bold"
+                Clicked="OnLoginClicked" />
+        <!-- Botón modo invitado -->
+        <Button Text="Entrar como invitado"
+                BackgroundColor="#E0E0E0"
+                TextColor="Black"
+                CornerRadius="25"
+                HeightRequest="50"
+                Clicked="OnGuestClicked" />
+    </VerticalStackLayout>
+</ContentPage>
