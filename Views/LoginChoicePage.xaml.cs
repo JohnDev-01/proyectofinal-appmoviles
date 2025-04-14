@@ -15,9 +15,8 @@ public partial class LoginChoicePage : ContentPage
 
     private async void OnGuestClicked(object sender, EventArgs e)
     {
-        // Guardar que está en modo invitado
-        Preferences.Set("IsGuest", true);
-        Application.Current.MainPage = new InicioPage();
+        // Aqui se navegara al menu de inicio sin necesidad de iniciar sesion
+        // Application.Current.MainPage = new InicioPage();
     }
 
 }

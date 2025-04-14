@@ -57,6 +57,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Include="Views\Public\HistoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
@@ -65,11 +71,11 @@
 		<MauiXaml Update="Views\LoginChoicePage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
-		<MauiXaml Update="Views\Public\Historia.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
 		<None Update="Views\LoginChoicePage.xaml">
 			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Views\Public\HistoryPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 		</None>
 	</ItemGroup>
 
