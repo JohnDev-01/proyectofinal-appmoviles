@@ -57,9 +57,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Include="Views\Public\HistoryPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+	  <!-- Remove MauiXaml entry for HistoryPage.xaml to resolve conflict -->
+	  <!-- <MauiXaml Include="Views\Public\HistoryPage.xaml"> -->
+	  <!--   <Generator>MSBuild:Compile</Generator> -->
+	  <!-- </MauiXaml> -->
 	</ItemGroup>
 
 	<ItemGroup>
@@ -74,9 +75,7 @@
 		<None Update="Views\LoginChoicePage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</None>
-		<None Update="Views\Public\HistoryPage.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</None>
+		<!-- Remove duplicate entry for HistoryPage.xaml -->
 	</ItemGroup>
 
 </Project>

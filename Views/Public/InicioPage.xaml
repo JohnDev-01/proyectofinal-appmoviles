@@ -1,11 +1,25 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="proyectofinal_appmoviles.Views.Public.InicioPage"
              Title="Inicio">
-    <StackLayout>
-        <Label Text="Welcome to the Inicio Page!" 
-               VerticalOptions="CenterAndExpand" 
-               HorizontalOptions="CenterAndExpand" />
-    </StackLayout>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="¡Bienvenido invitado!"
+                   FontSize="26"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   TextColor="#333"/>
+
+            <Button Text="Noticias Públicas" Clicked="OnNoticiasClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
+            <Button Text="Servicios" Clicked="OnServiciosClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
+            <Button Text="Videos" Clicked="OnVideosClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
+            <Button Text="Albergues" Clicked="OnAlberguesClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
+            <Button Text="Medidas Preventivas" Clicked="OnMedidasClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
+            <Button Text="Miembros" Clicked="OnMiembrosClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
+            <Button Text="Quiero ser voluntario" Clicked="OnVoluntarioClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
+            <Button Text="Acerca de" Clicked="OnAcercaClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
+

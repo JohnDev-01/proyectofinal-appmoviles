@@ -32,10 +32,10 @@
                 Clicked="OnLoginClicked" />
         <!-- Botón modo invitado -->
         <Button Text="Entrar como invitado"
-                BackgroundColor="#E0E0E0"
-                TextColor="Black"
-                CornerRadius="25"
-                HeightRequest="50"
-                Clicked="OnGuestClicked" />
+        BackgroundColor="#E0E0E0"
+        TextColor="Black"
+        CornerRadius="25"
+        HeightRequest="50"
+        Clicked="OnEntrarComoInvitadoClicked" />
     </VerticalStackLayout>
 </ContentPage>
