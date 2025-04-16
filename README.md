@@ -37,7 +37,7 @@ Aplicación móvil desarrollada con **.NET MAUI** para la **Defensa Civil Domini
 | --------------------- | --------- |
 | John Kerlin Silvestre | 2023-1192 |
 | Eliezer Palacio Ramos | 2023-1009 |
-| Cristal O. Hernandez  | 2023-0985 |
+| Cristal O. Hernandez  | 2023-0985 |👍🏼
 
 ---
 
