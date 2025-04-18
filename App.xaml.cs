@@ -7,7 +7,7 @@ public partial class App : Application
 	public App()
 	{
 		InitializeComponent();
-		MainPage = new LoginChoicePage();
+		MainPage = new NavigationPage(new LoginChoicePage());
 	}
 
 	//protected override Window CreateWindow(IActivationState? activationState)
