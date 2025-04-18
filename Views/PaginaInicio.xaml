@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectofinal_appmoviles.Views.PaginaInicio"
+             Title="PaginaInicio">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+
+            <!-- Título -->
+            <Label Text="Defensa Civil"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="Orange" />
+
+            <Label Text="Santo Domingo.- Más de 260  miembros de la Defensa Civil, entre técnicos y voluntarios, estuvieron por tres días consecutivos en una ardua labor como parte del despliegue del  operativo de emergencia que permitió el rescate de 189 personas heridas, tras el trágico suceso del desplome del techo ocurrido la madrugada del martes 8 de abril en la discoteca Jet Set."
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="DarkBlue" />
+
+            <!-- Imagen 1 -->
+            <Image Source="fotouna.jpg"
+                   Aspect="AspectFill"
+                   HeightRequest="200"
+                   WidthRequest="100"/>
+            
+
+            <!-- Imagen 2 -->
+            <Image Source="fotodos.jpg"
+                   Aspect="AspectFill"
+                   HeightRequest="200" />
+            
+
+            <!-- Imagen 3 -->
+            <Image Source="fototres.jpg"
+                   Aspect="AspectFill"
+                   HeightRequest="200" />
+            
+
+            <!-- Imagen 4 -->
+            <Image Source="fotocuatro.jpg"
+                   Aspect="AspectFill"
+                   HeightRequest="200" />
+            
+
+            <!-- Imagen 5 -->
+            <Image Source="fotocinco.jpg"
+                   Aspect="AspectFill"
+                   HeightRequest="200" />
+            
+
+
+            <Button Text="Continuar"
+                    Clicked="ContinuarClicked"
+                    BackgroundColor="#007aff"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -40,7 +40,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\mmm.png" Color="White" ForegroundScale="0.65"/>
+		<MauiIcon Include="Resources\AppIcon\mmm.png" Color="White" ForegroundScale="0.65" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -78,6 +78,9 @@
 	<ItemGroup>
 		<MauiXaml Update="Views\LoginChoicePage.xaml">
 			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\PaginaInicio.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<None Update="Views\LoginChoicePage.xaml">
 			<Generator>MSBuild:Compile</Generator>
