@@ -4,22 +4,54 @@
              Title="Inicio">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+        <VerticalStackLayout Padding="20" Spacing="20">
+
             <Label Text="¡Bienvenido invitado!"
                    FontSize="26"
                    HorizontalOptions="Center"
                    FontAttributes="Bold"
-                   TextColor="#333"/>
+                   TextColor="#FF6600" />
 
-            <Button Text="Noticias Públicas" Clicked="OnNoticiasClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
-            <Button Text="Servicios" Clicked="OnServiciosClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
-            <Button Text="Videos" Clicked="OnVideosClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
-            <Button Text="Albergues" Clicked="OnAlberguesClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
-            <Button Text="Medidas Preventivas" Clicked="OnMedidasClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
-            <Button Text="Miembros" Clicked="OnMiembrosClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
-            <Button Text="Quiero ser voluntario" Clicked="OnVoluntarioClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
-            <Button Text="Acerca de" Clicked="OnAcercaClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
+            <Grid ColumnSpacing="15" RowSpacing="15">
+                <!-- Definir columnas: 2 columnas -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Definir filas: 4 filas (una por cada par de botones) -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Fila 1 -->
+                <Button Text="Noticias Públicas" Grid.Row="0" Grid.Column="0" Clicked="OnNoticiasClicked"
+                        BackgroundColor="#FF6600" TextColor="White" CornerRadius="10"/>
+                <Button Text="Servicios" Grid.Row="0" Grid.Column="1" Clicked="OnServiciosClicked"
+                        BackgroundColor="#FF6600" TextColor="White" CornerRadius="10"/>
+
+                <!-- Fila 2 -->
+                <Button Text="Videos" Grid.Row="1" Grid.Column="0" Clicked="OnVideosClicked"
+                        BackgroundColor="#FF6600" TextColor="White" CornerRadius="10"/>
+                <Button Text="Albergues" Grid.Row="1" Grid.Column="1" Clicked="OnAlberguesClicked"
+                        BackgroundColor="#FF6600" TextColor="White" CornerRadius="10"/>
+
+                <!-- Fila 3 -->
+                <Button Text="Medidas Preventivas" Grid.Row="2" Grid.Column="0" Clicked="OnMedidasClicked"
+                        BackgroundColor="#FF6600" TextColor="White" CornerRadius="10"/>
+                <Button Text="Miembros" Grid.Row="2" Grid.Column="1" Clicked="OnMiembrosClicked"
+                        BackgroundColor="#FF6600" TextColor="White" CornerRadius="10"/>
+
+                <!-- Fila 4 -->
+                <Button Text="Quiero ser voluntario" Grid.Row="3" Grid.Column="0" Clicked="OnVoluntarioClicked"
+                        BackgroundColor="#FF6600" TextColor="White" CornerRadius="10"/>
+                <Button Text="Acerca de" Grid.Row="3" Grid.Column="1" Clicked="OnAcercaClicked"
+                        BackgroundColor="#FF6600" TextColor="White" CornerRadius="10"/>
+            </Grid>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
-
