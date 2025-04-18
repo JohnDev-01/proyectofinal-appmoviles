@@ -11,7 +11,7 @@
                    FontSize="24"
                    HorizontalOptions="Center" />
             <!-- Texto informativo de la historia -->
-            <Label Text="La Defensa Civil se creó con el objetivo de prevenir y responder ante desastres. Con una trayectoria que abarca décadas, ha evolucionado para incluir a la comunidad en la gestión de emergencias y la protección civil. [Puedes ampliar el texto con más datos relevantes y resumidos]."
+            <Label Text="La Defensa Civil se creó con el objetivo de prevenir y responder ante desastres. Con una trayectoria que abarca décadas ha evolucionado para incluir a la comunidad en la gestión de emergencias y la protección civil. [Puedes ampliar el texto con más datos relevantes y resumidos]."
                    FontSize="16"
                    TextColor="Black"
                    HorizontalOptions="FillAndExpand"
