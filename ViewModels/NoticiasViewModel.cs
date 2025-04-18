@@ -29,32 +29,50 @@ namespace proyectofinal_appmoviles.ViewModels
             _ = CargarNoticias();
         }
 
-        public async Task CargarNoticias()
+public async Task CargarNoticias()
+{
+    IsCargando = true;
+
+    try
+    {
+        var resultado = await _apiService.GetAsync<List<NoticiaModel>>("noticias.php") ?? new List<NoticiaModel>();
+
+        Noticias.Clear();
+
+        if (resultado != null)
         {
-            IsCargando = true;
-
-            var resultado = await _apiService.GetAsync<List<NoticiaModel>>("noticias.php") ?? new List<NoticiaModel>();
-
-            Noticias.Clear();
-
-            if (resultado != null)
+            foreach (var noticia in resultado)
             {
-                foreach (var noticia in resultado)
+                if (noticia != null)
+                {
+                    noticia.titulo ??= "Sin título";
+                    noticia.fecha ??= "Sin fecha";
+                    noticia.contenido ??= "Sin contenido";
+                    noticia.imagen ??= string.Empty;
                     Noticias.Add(noticia);
+                }
             }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert("Error", "No se pudieron cargar las noticias.", "OK");
-            }
-
-            IsCargando = false;
         }
+        else
+        {
+            await Application.Current!.MainPage!.DisplayAlert("Error", "No se pudieron cargar las noticias.", "OK");
+        }
+    }
+    catch (Exception ex)
+    {
+        await Application.Current!.MainPage!.DisplayAlert("Error", $"Error cargando noticias: {ex.Message}", "OK");
+    }
+    finally
+    {
+        IsCargando = false;
+    }
+}
 
         private async Task MostrarDetalle(NoticiaModel noticia)
         {
             if (noticia != null)
             {
-                await Application.Current.MainPage.DisplayAlert(noticia.titulo, noticia.contenido, "Cerrar");
+                await Application.Current!.MainPage!.DisplayAlert(noticia.titulo, noticia.contenido, "Cerrar");
             }
         }
 

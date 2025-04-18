@@ -52,6 +52,9 @@
                         BackgroundColor="#FF6600" TextColor="White" CornerRadius="10"/>
             </Grid>
 
+            <Button Text="Regresar a Login" Clicked="OnRegresarLoginClicked"
+                    BackgroundColor="#FF6600" TextColor="White" CornerRadius="10" Margin="0,20,0,0" HorizontalOptions="Center"/>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -79,5 +79,41 @@ namespace proyectofinal_appmoviles.Services
                 return default;
             }
         }
+
+        // New method to get services list
+        public async Task<Models.ServicioResponseDto?> GetServiciosAsync()
+        {
+            return await GetAsync<Models.ServicioResponseDto>("servicios.php");
+        }
+
+        // New method to get videos list
+        public async Task<List<Models.VideoDto>?> GetVideosAsync()
+        {
+            return await GetAsync<List<Models.VideoDto>>("videos.php");
+        }
+
+        // New method to get preventive measures list
+        public async Task<Models.MedidaResponseDto?> GetMedidasAsync()
+        {
+            return await GetAsync<Models.MedidaResponseDto>("medidas.php");
+        }
+
+        // New method to get members list
+        public async Task<Models.MiembroResponseDto?> GetMiembrosAsync()
+        {
+            return await GetAsync<Models.MiembroResponseDto>("miembros.php");
+        }
+
+        // New method to post volunteer data
+        public async Task<TResponse?> PostVoluntarioAsync<TResponse>(object data)
+        {
+            return await PostAsync<object, TResponse>("voluntarios.php", data);
+        }
+
+        // New method to get albergues list
+        public async Task<Models.AlbergueResponseDto?> GetAlberguesAsync()
+        {
+            return await GetAsync<Models.AlbergueResponseDto>("albergues.php");
+        }
     }
 }

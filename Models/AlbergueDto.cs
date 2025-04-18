@@ -19,6 +19,8 @@ namespace proyectofinal_appmoviles.Models
         public string? Nombre { get; set; }
         public string? Direccion { get; set; }
         public string? Capacidad { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
     }
 
 }

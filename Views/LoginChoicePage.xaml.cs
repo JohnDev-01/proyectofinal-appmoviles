@@ -1,23 +1,25 @@
 using proyectofinal_appmoviles.Views.Public;
-using proyectofinal_appmoviles.ViewModels; // Added using directive for InicioViewModel
+using proyectofinal_appmoviles.ViewModels;
 
 namespace proyectofinal_appmoviles.Views;
 
 public partial class LoginChoicePage : ContentPage
 {
-	public LoginChoicePage()
-	{
-		InitializeComponent();
-	}
-private async void OnLoginClicked(object sender, EventArgs e)
-{
-    // Implement the desired functionality for the OnLoginClicked event
-    await DisplayAlert("Login", "Login clicked!", "OK");
-}
-
-private async void OnEntrarComoInvitadoClicked(object sender, EventArgs e) 
+    public LoginChoicePage()
     {
-        Application.Current.MainPage = new InicioPage(new InicioViewModel());
+        InitializeComponent();
     }
 
+    private async void OnLoginClicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Login", "Login clicked!", "OK");
+    }
+
+    private void OnEntrarComoInvitadoClicked(object sender, EventArgs e) 
+    {
+        if (Application.Current != null)
+        {
+            Application.Current.MainPage = new NavigationPage(new InicioPage(new InicioViewModel()));
+        }
+    }
 }

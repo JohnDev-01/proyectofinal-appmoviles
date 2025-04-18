@@ -20,6 +20,8 @@ namespace proyectofinal_appmoviles.Models
         public string? Apellido { get; set; }
         public string? Correo { get; set; }
         public string? Telefono { get; set; }
+        public string? Cargo { get; set; }  // Added role property
+        public string? Foto { get; set; }   // Added photo/avatar property
+        public string? Telegram { get; set; } // Added Telegram contact property
     }
-
 }
