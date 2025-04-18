@@ -40,7 +40,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\mmm.png" Color="White" ForegroundScale="0.65"/>
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -57,10 +57,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <!-- Remove MauiXaml entry for HistoryPage.xaml to resolve conflict -->
+
+	  <None Remove="Resources\AppIcon\mm.png" />
+	</ItemGroup>
+
+	<ItemGroup><!-- Remove MauiXaml entry for HistoryPage.xaml to resolve conflict -->
 	  <!-- <MauiXaml Include="Views\Public\HistoryPage.xaml"> -->
 	  <!--   <Generator>MSBuild:Compile</Generator> -->
 	  <!-- </MauiXaml> -->
+
+	
+	  <None Remove="Resources\AppIcon\mmm.png" />
 	</ItemGroup>
 
 	<ItemGroup>
