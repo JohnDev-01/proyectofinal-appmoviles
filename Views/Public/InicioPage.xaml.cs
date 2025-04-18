@@ -13,52 +13,53 @@ public partial class InicioPage : ContentPage
 
     private async void OnNoticiasClicked(object sender, EventArgs e)
     {
-        // Implement the desired functionality for the OnNoticiasClicked event
-        // For example, navigate to a news page or display a message
-        await DisplayAlert("Noticias", "Noticias clicked!", "OK");
+        // Navigate to NoticiasPage
+        await Navigation.PushAsync(new NoticiasPage());
     }
 
     private async void OnServiciosClicked(object sender, EventArgs e)
     {
-        // Implement the desired functionality for the OnServiciosClicked event
-        // For example, navigate to a services page or display a message
-        await DisplayAlert("Servicios", "Servicios clicked!", "OK");
+        // Navigate to ServiciosPage
+        await Navigation.PushAsync(new ServiciosPage());
     }
 
     private async void OnVideosClicked(object sender, EventArgs e)
     {
-        // Implement the desired functionality for the OnVideosClicked event
-        await DisplayAlert("Videos", "Videos clicked!", "OK");
+        // Navigate to VideosPage
+        await Navigation.PushAsync(new VideosPage());
     }
 
     private async void OnAlberguesClicked(object sender, EventArgs e)
     {
-        // Implement the desired functionality for the OnAlberguesClicked event
-        await DisplayAlert("Albergues", "Albergues clicked!", "OK");
+        // Navigate to AlberguesPage
+        await Navigation.PushAsync(new AlberguesPage());
     }
 
     private async void OnMedidasClicked(object sender, EventArgs e)
     {
-        // Implement the desired functionality for the OnMedidasClicked event
-        await DisplayAlert("Medidas", "Medidas clicked!", "OK");
+        // Navigate to MedidasPage
+        await Navigation.PushAsync(new MedidasPage());
     }
 
     private async void OnMiembrosClicked(object sender, EventArgs e)
     {
-        // Implement the desired functionality for the OnMiembrosClicked event
-        await DisplayAlert("Miembros", "Miembros clicked!", "OK");
+        // Navigate to MiembrosPage
+        await Navigation.PushAsync(new MiembrosPage());
     }
 
     private async void OnVoluntarioClicked(object sender, EventArgs e)
     {
-        // Implement the desired functionality for the OnVoluntarioClicked event
-        await DisplayAlert("Voluntario", "Voluntario clicked!", "OK");
+        // Navigate to QuieroSerVoluntarioPage
+        await Navigation.PushAsync(new QuieroSerVoluntarioPage());
     }
 
     private async void OnAcercaClicked(object sender, EventArgs e)
     {
-        // Implement the desired functionality for the OnAcercaClicked event
-        await DisplayAlert("Acerca", "Acerca clicked!", "OK");
+        await Navigation.PushAsync(new AcercaDePage());
     }
-}
+    private void OnRegresarLoginClicked(object sender, EventArgs e)
+    {
+        Application.Current.MainPage = new LoginChoicePage();
+    }
+    }
 }

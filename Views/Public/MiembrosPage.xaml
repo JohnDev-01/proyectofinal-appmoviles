@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:proyectofinal_appmoviles.ViewModels"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="proyectofinal_appmoviles.Views.Public.MiembrosPage"
+             Title="Miembros">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MiembrosViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="10">
+            <Label Text="Solicitud para ser Voluntario" 
+                   FontAttributes="Bold" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" />
+
+            <!-- Form Fields -->
+            <Entry Placeholder="Cédula" Text="{Binding Cedula}" Keyboard="Numeric" />
+            <Label Text="{Binding CedulaError}" TextColor="Red" FontSize="12" IsVisible="{Binding CedulaError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <Entry Placeholder="Nombre" Text="{Binding Nombre}" />
+            <Label Text="{Binding NombreError}" TextColor="Red" FontSize="12" IsVisible="{Binding NombreError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <Entry Placeholder="Apellido" Text="{Binding Apellido}" />
+            <Label Text="{Binding ApellidoError}" TextColor="Red" FontSize="12" IsVisible="{Binding ApellidoError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <Entry Placeholder="Correo" Text="{Binding Correo}" Keyboard="Email" />
+            <Label Text="{Binding CorreoError}" TextColor="Red" FontSize="12" IsVisible="{Binding CorreoError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <Entry Placeholder="Teléfono" Text="{Binding Telefono}" Keyboard="Telephone" />
+            <Label Text="{Binding TelefonoError}" TextColor="Red" FontSize="12" IsVisible="{Binding TelefonoError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <!-- Submit Button -->
+            <Button Text="Enviar Solicitud" Command="{Binding SubmitCommand}" IsEnabled="{Binding IsSubmitting, Converter={StaticResource InverseBooleanConverter}}" />
+
+            <!-- Loading Indicator -->
+            <ActivityIndicator IsRunning="{Binding IsSubmitting}" IsVisible="{Binding IsSubmitting}" />
+
+            <!-- Success and Error Messages -->
+            <Label Text="{Binding SuccessMessage}" TextColor="Green" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding SuccessMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+            <Label Text="{Binding ErrorMessage}" TextColor="Red" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <!-- Existing Members List -->
+            <Label Text="Miembros del Equipo Defensa Civil" 
+                   FontAttributes="Bold" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" 
+                   Margin="0,20,0,0" />
+
+            <RefreshView IsRefreshing="{Binding IsLoading}" Margin="0,10,0,0">
+                <CollectionView ItemsSource="{Binding Miembros}" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="0,5" Padding="10" CornerRadius="8" HasShadow="True" BackgroundColor="White">
+                                <Grid ColumnDefinitions="80,*,Auto" RowDefinitions="Auto,Auto,Auto">
+                                    <Image Grid.RowSpan="3" Grid.Column="0" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" 
+                                           VerticalOptions="Center" HorizontalOptions="Center" x:Name="MemberImage" />
+                                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding Nombre}" FontAttributes="Bold" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding Cargo}" FontAttributes="Italic" FontSize="14" TextColor="Gray" />
+                                    <StackLayout Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Spacing="15" VerticalOptions="Center">
+                                        <ImageButton Source="phone_icon.png" WidthRequest="24" HeightRequest="24" BackgroundColor="Transparent" 
+                                                     Clicked="OnPhoneClicked" CommandParameter="{Binding Telefono}" />
+                                        <ImageButton Source="email_icon.png" WidthRequest="24" HeightRequest="24" BackgroundColor="Transparent" 
+                                                     Clicked="OnEmailClicked" CommandParameter="{Binding Correo}" />
+                                    </StackLayout>
+                                </Grid>
+                                <Frame.Triggers>
+                                    <DataTrigger TargetType="Image" Binding="{Binding Foto}" Value="">
+                                        <Setter TargetName="MemberImage" Property="Source" Value="default_avatar.png" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Image" Binding="{Binding Foto}" Value="{x:Null}">
+                                        <Setter TargetName="MemberImage" Property="Source" Value="default_avatar.png" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Image" Binding="{Binding Foto}" Value="{x:Static sys:String.Empty}">
+                                        <Setter TargetName="MemberImage" Property="Source" Value="default_avatar.png" />
+                                    </DataTrigger>
+                                </Frame.Triggers>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

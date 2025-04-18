@@ -14,10 +14,17 @@ namespace proyectofinal_appmoviles.Views.Public
             BindingContext = viewModel; // Ensure the ViewModel is imported
         }
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            await viewModel.CargarNoticias(); // Fetch news articles when the page appears
-        }
+protected override async void OnAppearing()
+{
+    base.OnAppearing();
+    try
+    {
+        await viewModel.CargarNoticias(); // Fetch news articles when the page appears
+    }
+    catch (Exception ex)
+    {
+        await DisplayAlert("Error", $"Error loading news: {ex.Message}", "OK");
+    }
+}
     }
 }

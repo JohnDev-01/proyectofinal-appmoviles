@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:proyectofinal_appmoviles.ViewModels"
+             x:Class="proyectofinal_appmoviles.Views.Public.QuieroSerVoluntarioPage"
+             Title="Quiero ser voluntario">
+
+    <ContentPage.BindingContext>
+        <viewmodels:QuieroSerVoluntarioViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="10">
+            <Label Text="Formulario para ser Voluntario" 
+                   FontAttributes="Bold" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" />
+
+            <!-- Form Fields -->
+            <Entry Placeholder="Cédula" Text="{Binding Cedula}" Keyboard="Numeric" />
+            <Label Text="{Binding CedulaError}" TextColor="Red" FontSize="12" IsVisible="{Binding CedulaError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <Entry Placeholder="Nombre" Text="{Binding Nombre}" />
+            <Label Text="{Binding NombreError}" TextColor="Red" FontSize="12" IsVisible="{Binding NombreError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <Entry Placeholder="Apellido" Text="{Binding Apellido}" />
+            <Label Text="{Binding ApellidoError}" TextColor="Red" FontSize="12" IsVisible="{Binding ApellidoError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <Entry Placeholder="Correo" Text="{Binding Correo}" Keyboard="Email" />
+            <Label Text="{Binding CorreoError}" TextColor="Red" FontSize="12" IsVisible="{Binding CorreoError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <Entry Placeholder="Teléfono" Text="{Binding Telefono}" Keyboard="Telephone" />
+            <Label Text="{Binding TelefonoError}" TextColor="Red" FontSize="12" IsVisible="{Binding TelefonoError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <Entry Placeholder="Contraseña" Text="{Binding Contrasena}" IsPassword="True" />
+            <Label Text="{Binding ContrasenaError}" TextColor="Red" FontSize="12" IsVisible="{Binding ContrasenaError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <!-- Submit Button -->
+            <Button Text="Enviar Solicitud" Command="{Binding SubmitCommand}" IsEnabled="{Binding IsSubmitting, Converter={StaticResource InverseBooleanConverter}}" />
+
+            <!-- Loading Indicator -->
+            <ActivityIndicator IsRunning="{Binding IsSubmitting}" IsVisible="{Binding IsSubmitting}" />
+
+            <!-- Success and Error Messages -->
+            <Label Text="{Binding SuccessMessage}" TextColor="Green" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding SuccessMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+            <Label Text="{Binding ErrorMessage}" TextColor="Red" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
