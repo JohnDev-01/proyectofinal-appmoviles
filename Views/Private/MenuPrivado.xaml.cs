@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace proyectofinal_appmoviles.Views.Private;
 
 public partial class MenuPrivado : ContentPage
@@ -27,8 +29,9 @@ public partial class MenuPrivado : ContentPage
         // Navegar al mapa
     }
 
-    private void OnCambiarClaveClicked(object sender, EventArgs e)
+    private async void OnCambiarClaveClicked(object sender, EventArgs e)
     {
         // Navegar al cambio de contraseña
+        await Navigation.PushAsync(new CambiarClave());
     }
 }

@@ -29,6 +29,10 @@ namespace proyectofinal_appmoviles.Services
                 Preferences.Set("token", token);
             }
         }
+        public string GetToken()
+        {
+            return Preferences.Get("token", string.Empty);
+        }
 
         public async Task<T?> GetAsync<T>(string endpoint)
         {
