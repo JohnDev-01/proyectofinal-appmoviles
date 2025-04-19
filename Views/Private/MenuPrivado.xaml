@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectofinal_appmoviles.Views.Private.MenuPrivado"
+             Title="MenuPrivado">
+    <ScrollView>
+        <VerticalStackLayout Padding="30"
+                             Spacing="20"
+                             VerticalOptions="Center">
+            <Label Text="Bienvenido al menú privado"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+            <Button Text="📰 Noticias privadas (líneas a seguir)"
+                    StyleClass="MenuButton"
+                    Clicked="OnNoticiasClicked" />
+            <Button Text="🚨 Reportar situación"
+                    StyleClass="MenuButton"
+                    Clicked="OnReportarClicked" />
+            <Button Text="📋 Mis situaciones"
+                    StyleClass="MenuButton"
+                    Clicked="OnMisSituacionesClicked" />
+            <Button Text="🗺️ Mapa de situaciones"
+                    StyleClass="MenuButton"
+                    Clicked="OnMapaClicked" />
+            <Button Text="🔒 Cambiar contraseña"
+                    StyleClass="MenuButton"
+                    Clicked="OnCambiarClaveClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

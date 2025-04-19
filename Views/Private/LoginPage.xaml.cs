@@ -42,7 +42,8 @@ public partial class LoginPage : ContentPage
             {
                 var token = json.GetProperty("datos").GetProperty("token").GetString();
                 _apiService.SetToken(token);
-                await DisplayAlert("Bienvenido", json.GetProperty("mensaje").GetString(), "OK");
+               
+                Application.Current.MainPage = new NavigationPage(new MenuPrivado()); // Navegar a la página principal
                 // Navegar a la página principal
             }
             else

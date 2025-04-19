@@ -85,6 +85,9 @@
 		<MauiXaml Update="Views\Private\LoginPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="Views\Private\MenuPrivado.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<None Update="Views\LoginChoicePage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</None>
