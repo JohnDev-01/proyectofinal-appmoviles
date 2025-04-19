@@ -56,6 +56,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Platforms\Android\Resources\values\google_play_services.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
 
 	  <None Remove="Resources\AppIcon\mm.png" />
 	</ItemGroup>
@@ -72,7 +76,7 @@
 		<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="9.0.60" />
+		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.101" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -101,6 +105,9 @@
 			<Generator>MSBuild:Compile</Generator>
 		</None>
 		<!-- Remove duplicate entry for HistoryPage.xaml -->
-	</ItemGroup>
 
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidResource Include="Platforms\Android\Resources\**\*.xml" />
+	</ItemGroup>
 </Project>

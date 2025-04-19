@@ -27,7 +27,7 @@
             <Label Text="Selecciona la ubicación en el mapa"
                    FontAttributes="Bold" />
             <maps:Map x:Name="SituacionMap"
-                      HeightRequest="200"
+                      HeightRequest="300"
                       MapClicked="OnMapClicked" />
             <Label x:Name="UbicacionLabel"
                    Text="Latitud: - | Longitud: -"

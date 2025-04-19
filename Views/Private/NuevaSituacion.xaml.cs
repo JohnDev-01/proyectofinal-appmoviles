@@ -23,29 +23,71 @@ public partial class NuevaSituacion : ContentPage
     {
         try
         {
-            var location = await Geolocation.GetLastKnownLocationAsync();
+            var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            if (status != PermissionStatus.Granted)
+            {
+                await DisplayAlert("Permiso denegado", "No se otorgaron permisos de ubicación.", "OK");
+                return;
+            }
+
+            var location = await Geolocation.GetLocationAsync(new GeolocationRequest
+            {
+                DesiredAccuracy = GeolocationAccuracy.High,
+                Timeout = TimeSpan.FromSeconds(10)
+            });
+
             if (location != null)
             {
                 _latitud = location.Latitude.ToString();
                 _longitud = location.Longitude.ToString();
 
-                SituacionMap.MoveToRegion(MapSpan.FromCenterAndRadius(
-                    new Location(location.Latitude, location.Longitude), Distance.FromKilometers(1)));
+                var posicion = new Location(location.Latitude, location.Longitude);
+                SituacionMap.MoveToRegion(MapSpan.FromCenterAndRadius(posicion, Distance.FromKilometers(1)));
 
                 UbicacionLabel.Text = $"Latitud: {_latitud} | Longitud: {_longitud}";
+
+                // Agregar un pin en la ubicación actual
+                var pin = new Pin
+                {
+                    Label = "Mi ubicación",
+                    Address = "Ubicación actual",
+                    Location = posicion,
+                    Type = PinType.Place
+                };
+
+                SituacionMap.Pins.Add(pin);
+            }
+            else
+            {
+                await DisplayAlert("Ubicación no disponible", "No se pudo obtener la ubicación actual.", "OK");
             }
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Error", "No se pudo obtener la ubicación: " + ex.Message, "OK");
+            await DisplayAlert("Error", $"Error al obtener la ubicación: {ex.Message}", "OK");
         }
     }
+
 
     private void OnMapClicked(object sender, MapClickedEventArgs e)
     {
         _latitud = e.Location.Latitude.ToString();
         _longitud = e.Location.Longitude.ToString();
         UbicacionLabel.Text = $"Latitud: {_latitud} | Longitud: {_longitud}";
+
+        // Limpiar pines anteriores
+        SituacionMap.Pins.Clear();
+
+        // Agregar nuevo pin
+        var nuevoPin = new Pin
+        {
+            Label = "Ubicación seleccionada",
+            Address = "Punto seleccionado",
+            Location = e.Location,
+            Type = PinType.Place
+        };
+
+        SituacionMap.Pins.Add(nuevoPin);
     }
 
     private async void OnTomarFotoClicked(object sender, EventArgs e)
