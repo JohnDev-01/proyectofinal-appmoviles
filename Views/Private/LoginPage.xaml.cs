@@ -90,4 +90,10 @@ public partial class LoginPage : ContentPage
 
 
     }
+
+    private async void OnCrearCuentaTapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new RegistroVoluntario());
+
+    }
 }

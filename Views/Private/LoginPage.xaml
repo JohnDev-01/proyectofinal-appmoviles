@@ -28,6 +28,17 @@
                     <TapGestureRecognizer Tapped="OnForgotPasswordTapped" />
                 </Label.GestureRecognizers>
             </Label>
+            <Label Text="¿No tienes una cuenta?"
+                   HorizontalOptions="Center"
+                   FontSize="14" />
+            <Label Text="Crea una cuenta nueva"
+                   TextColor="#FF7F11"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCrearCuentaTapped" />
+                </Label.GestureRecognizers>
+            </Label>
             <Label x:Name="MessageLabel"
                    TextColor="Red"
                    FontAttributes="Italic" />

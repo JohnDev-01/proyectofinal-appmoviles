@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectofinal_appmoviles.Views.Private.RegistroVoluntario"
+             BackgroundColor="White"
+             Title="Registro de Voluntario">
+    <ScrollView>
+        <VerticalStackLayout Padding="30"
+                             Spacing="20">
+            <Label Text="Formulario de Registro"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Entry x:Name="CedulaEntry"
+                   Placeholder="Cédula"
+                   Keyboard="Numeric" />
+            <Entry x:Name="NombreEntry"
+                   Placeholder="Nombre" />
+            <Entry x:Name="ApellidoEntry"
+                   Placeholder="Apellido" />
+            <Entry x:Name="CorreoEntry"
+                   Placeholder="Correo electrónico"
+                   Keyboard="Email" />
+            <Entry x:Name="TelefonoEntry"
+                   Placeholder="Teléfono"
+                   Keyboard="Telephone" />
+            <Entry x:Name="ClaveEntry"
+                   Placeholder="Contraseña"
+                   IsPassword="True" />
+            <Button Text="Registrarse"
+                    BackgroundColor="#FF7F11"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Clicked="OnRegistroClicked" />
+            <Label x:Name="MensajeLabel"
+                   TextColor="Red"
+                   FontAttributes="Italic" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
