@@ -2,92 +2,69 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="proyectofinal_appmoviles.Views.PaginaInicio"
-             Title="Defensa Civil">
+             Title="Defensa Civil"
+             BackgroundColor="White">
     <ScrollView>
-        <StackLayout Padding="20" Spacing="20">
-
-            
-                <Image Source="logodefensa.jpeg"
-                   Aspect="AspectFill"
+        <VerticalStackLayout Padding="24"
+                             Spacing="16">
+            <Image Source="logodefensa.jpeg"
+                   Aspect="AspectFit"
                    HeightRequest="100"
-                   WidthRequest="100"/>
-
-         
-         
+                   HorizontalOptions="Center" />
             <Label Text="Defensa Civil"
-                   FontSize="24"
+                   FontSize="28"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    TextColor="#FF7F11" />
-
-
-            <BoxView HeightRequest="1" BackgroundColor="#D3D3D3" Margin="0,20" />
-
-            <Label Text="Santo Domingo.- Más de 260  miembros de la Defensa Civil, entre técnicos y voluntarios, estuvieron por tres días consecutivos en una ardua labor como parte del despliegue del  operativo de emergencia que permitió el rescate de 189 personas heridas, tras el trágico suceso del desplome del techo ocurrido la madrugada del martes 8 de abril en la discoteca Jet Set."
-                   FontSize="10"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
+            <BoxView HeightRequest="1"
+                     BackgroundColor="#E0E0E0" />
+            <Label Text="Santo Domingo.- Más de 260 miembros de la Defensa Civil, entre técnicos y voluntarios, estuvieron por tres días consecutivos en una ardua labor como parte del despliegue del operativo de emergencia que permitió el rescate de 189 personas heridas, tras el trágico suceso del desplome del techo ocurrido la madrugada del martes 8 de abril en la discoteca Jet Set."
+                   FontSize="14"
+                   HorizontalTextAlignment="Center"
                    TextColor="#0033A0" />
-
             <Image Source="fotouna.jpg"
                    Aspect="AspectFill"
-                   HeightRequest="300"
-                   WidthRequest="300"/>
-            
-
-       
+                   HeightRequest="200"
+                   HorizontalOptions="FillAndExpand" />
             <Image Source="fotodos.jpg"
                    Aspect="AspectFill"
-                   HeightRequest="300"
-                   WidthRequest="300" />
-            
-
-          
+                   HeightRequest="200"
+                   HorizontalOptions="FillAndExpand" />
             <Image Source="fototres.jpg"
                    Aspect="AspectFill"
-                   HeightRequest="300"
-                   WidthRequest="300" />
-
-
-            <BoxView HeightRequest="1" BackgroundColor="#D3D3D3" Margin="0,20" />
-
-
-            <Label Text="Brigadistas de la Defensa Civil (DC) son sometidos a terapias contra posible estrés postraumático, tras su intensa labor de rescate durante la tragedia por el desplome del techo del centro de diversión Jet Set, en el Distrito Nacional, durante la madrugada del pasado martes."
-                   FontSize="12"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
+                   HeightRequest="200"
+                   HorizontalOptions="FillAndExpand" />
+            <BoxView HeightRequest="1"
+                     BackgroundColor="#E0E0E0" />
+            <Label Text="Brigadistas de la Defensa Civil (DC) son sometidos a terapias contra posible estrés postraumático, tras su intensa labor de rescate durante la tragedia por el desplome del techo del centro de diversión Jet Set, en el Distrito Nacional, durante la madrugada del pasado martes."
+                   FontSize="14"
+                   HorizontalTextAlignment="Center"
                    TextColor="#0033A0" />
-
-        
             <Image Source="fotocuatro.jpg"
                    Aspect="AspectFill"
-                   HeightRequest="300"
-                   WidthRequest="300" />
-
-
-            <BoxView HeightRequest="1" BackgroundColor="#D3D3D3" Margin="0,20" />
-            
+                   HeightRequest="200"
+                   HorizontalOptions="FillAndExpand" />
+            <BoxView HeightRequest="1"
+                     BackgroundColor="#E0E0E0" />
             <Label Text="Santo Domingo.- El director ejecutivo de la Defensa Civil, Juan Salas, sostuvo este martes una reunión de coordinación con los 32 directores y directoras provinciales de la institución, donde acordaron trabajar en favor de preservar vidas ante el operativo por Semana Santa 2025."
-                   FontSize="12"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
+                   FontSize="14"
+                   HorizontalTextAlignment="Center"
                    TextColor="#0033A0" />
-
-         
             <Image Source="fotocinco.jpg"
                    Aspect="AspectFill"
-                   HeightRequest="300"
-                   WidthRequest="300" />
-
-            <BoxView HeightRequest="1" BackgroundColor="#D3D3D3" Margin="0,20" />
-
+                   HeightRequest="200"
+                   HorizontalOptions="FillAndExpand" />
+            <BoxView HeightRequest="1"
+                     BackgroundColor="#E0E0E0" />
             <Button Text="Continuar"
                     FontAttributes="Bold"
                     Clicked="ContinuarClicked"
                     BackgroundColor="#FF7F11"
-                    TextColor="#0033A0"
-                    CornerRadius="10" />
-
-        </StackLayout>
+                    TextColor="White"
+                    CornerRadius="12"
+                    FontSize="16"
+                    HeightRequest="50"
+                    HorizontalOptions="Fill" />
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
