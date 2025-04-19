@@ -26,6 +26,7 @@ namespace proyectofinal_appmoviles.Services
             if (!string.IsNullOrWhiteSpace(token))
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                Preferences.Set("token", token);
             }
         }
 
