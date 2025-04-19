@@ -52,6 +52,36 @@ namespace proyectofinal_appmoviles.Services
                 return default;
             }
         }
+        public async Task<JsonElement?> PostFormDataAsync(string endpoint, Dictionary<string, string> formData)
+        {
+            try
+            {
+                var content = new MultipartFormDataContent();
+
+                foreach (var kv in formData)
+                {
+                    content.Add(new StringContent(kv.Value), kv.Key);
+                }
+
+                var response = await _httpClient.PostAsync(endpoint, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    return JsonSerializer.Deserialize<JsonElement>(jsonResponse);
+                }
+                else
+                {
+                    Console.WriteLine($"❌ Error POST FormData: {response.StatusCode}");
+                    return default;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"🚨 Excepción en POST FormData: {ex.Message}");
+                return default;
+            }
+        }
 
         public async Task<TResponse?> PostAsync<TRequest, TResponse>(string endpoint, TRequest data)
         {
