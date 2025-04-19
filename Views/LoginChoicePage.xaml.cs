@@ -1,5 +1,6 @@
 using proyectofinal_appmoviles.Views.Public;
 using proyectofinal_appmoviles.ViewModels;
+using proyectofinal_appmoviles.Views.Private;
 
 namespace proyectofinal_appmoviles.Views;
 
@@ -12,7 +13,7 @@ public partial class LoginChoicePage : ContentPage
 
     private async void OnLoginClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Login", "Login clicked!", "OK");
+        await Navigation.PushAsync(new LoginPage());
     }
 
     private void OnEntrarComoInvitadoClicked(object sender, EventArgs e) 
