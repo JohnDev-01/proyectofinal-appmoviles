@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectofinal_appmoviles.Views.Private.NoticiasPrivadasPage"
+             Title="Noticias Privadas"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Padding="20"
+                                 Spacing="15">
+                <Label Text="Noticias Privadas"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#FF7F11" />
+                <CollectionView x:Name="NoticiasList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="#FF7F11"
+                                   CornerRadius="12"
+                                   Padding="12"
+                                   Margin="5">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding titulo}"
+                                           FontAttributes="Bold"
+                                           FontSize="16" />
+                                    <Label Text="{Binding fecha}"
+                                           FontSize="12"
+                                           TextColor="Gray" />
+                                    <Label Text="{Binding descripcion}"
+                                           FontSize="14" />
+                                    <Image Source="{Binding foto}"
+                                           HeightRequest="150"
+                                           Aspect="AspectFill" />
+                                </VerticalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Label x:Name="MensajeLabel"
+                       TextColor="Red"
+                       FontSize="13"
+                       IsVisible="False" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

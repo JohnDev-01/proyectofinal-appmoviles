@@ -57,6 +57,38 @@ namespace proyectofinal_appmoviles.Services
                 return default;
             }
         }
+        public async Task<JsonElement?> GetAsync(string endpoint, Dictionary<string, string>? queryParams = null)
+        {
+            try
+            {
+                var url = _baseUrl + endpoint;
+
+                if (queryParams != null && queryParams.Count > 0)
+                {
+                    var queryString = string.Join("&", queryParams.Select(kvp => $"{kvp.Key}={Uri.EscapeDataString(kvp.Value)}"));
+                    url += "?" + queryString;
+                }
+
+                var response = await _httpClient.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = await response.Content.ReadAsStringAsync();
+                    return JsonSerializer.Deserialize<JsonElement>(json);
+                }
+                else
+                {
+                    Console.WriteLine($"❌ Error GET: {response.StatusCode}");
+                    return default;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"🚨 Excepción en GET: {ex.Message}");
+                return default;
+            }
+        }
+
         public async Task<JsonElement?> PostFormDataAsync(string endpoint, Dictionary<string, string> formData)
         {
             try

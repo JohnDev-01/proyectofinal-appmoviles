@@ -23,9 +23,10 @@ public partial class MenuPrivado : ContentPage
             await DisplayAlert("Permisos necesarios", "Se requieren permisos de cámara y ubicación para continuar.", "OK");
         }
     }
-    private void OnNoticiasClicked(object sender, EventArgs e)
+    private async void OnNoticiasClicked(object sender, EventArgs e)
     {
         // Navegar o mostrar contenido de noticias
+        await Navigation.PushAsync(new NoticiasPrivadasPage());
     }
 
     private async void OnReportarClicked(object sender, EventArgs e)
@@ -34,14 +35,16 @@ public partial class MenuPrivado : ContentPage
         await Navigation.PushAsync(new NuevaSituacion());
     }
 
-    private void OnMisSituacionesClicked(object sender, EventArgs e)
+    private async void OnMisSituacionesClicked(object sender, EventArgs e)
     {
         // Mostrar situaciones del usuario
+        await Navigation.PushAsync(new MisSituacionesPage());
     }
 
-    private void OnMapaClicked(object sender, EventArgs e)
+    private async void OnMapaClicked(object sender, EventArgs e)
     {
         // Navegar al mapa
+        await Navigation.PushAsync(new MiMapaPage());
     }
 
     private async void OnCambiarClaveClicked(object sender, EventArgs e)

@@ -95,6 +95,15 @@
 		<MauiXaml Update="Views\Private\MenuPrivado.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="Views\Private\MiMapaPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\Private\MisSituacionesPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\Private\NoticiasPrivadasPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Views\Private\NuevaSituacion.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
