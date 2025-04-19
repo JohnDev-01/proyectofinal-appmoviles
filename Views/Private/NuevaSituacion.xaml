@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectofinal_appmoviles.Views.Private.NuevaSituacion"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             Title="Reportar Situación"
+             BackgroundColor="White">
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="15">
+            <Label Text="Reportar Nueva Situación"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Entry x:Name="TituloEntry"
+                   Placeholder="Título de la situación" />
+            <Editor x:Name="DescripcionEditor"
+                    Placeholder="Descripción detallada"
+                    AutoSize="TextChanges" />
+            <Button Text="Tomar Foto"
+                    Clicked="OnTomarFotoClicked"
+                    BackgroundColor="#FF7F11"
+                    TextColor="White" />
+            <Image x:Name="FotoPreview"
+                   HeightRequest="200"
+                   Aspect="AspectFill" />
+            <Label Text="Selecciona la ubicación en el mapa"
+                   FontAttributes="Bold" />
+            <maps:Map x:Name="SituacionMap"
+                      HeightRequest="200"
+                      MapClicked="OnMapClicked" />
+            <Label x:Name="UbicacionLabel"
+                   Text="Latitud: - | Longitud: -"
+                   FontAttributes="Italic" />
+            <Button Text="Enviar Reporte"
+                    BackgroundColor="#FF7F11"
+                    TextColor="White"
+                    Clicked="OnEnviarReporteClicked" />
+            <Label x:Name="MensajeLabel"
+                   TextColor="Red"
+                   FontAttributes="Italic" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

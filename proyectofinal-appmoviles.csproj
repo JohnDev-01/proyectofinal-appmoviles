@@ -91,6 +91,9 @@
 		<MauiXaml Update="Views\Private\MenuPrivado.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="Views\Private\NuevaSituacion.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Views\Private\RegistroVoluntario.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

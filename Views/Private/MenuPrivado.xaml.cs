@@ -8,15 +8,30 @@ public partial class MenuPrivado : ContentPage
     {
         InitializeComponent();
     }
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await SolicitarPermisosAsync();
+    }
+    private async Task SolicitarPermisosAsync()
+    {
+        var cameraStatus = await Permissions.RequestAsync<Permissions.Camera>();
+        var locationStatus = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
 
+        if (cameraStatus != PermissionStatus.Granted || locationStatus != PermissionStatus.Granted)
+        {
+            await DisplayAlert("Permisos necesarios", "Se requieren permisos de cámara y ubicación para continuar.", "OK");
+        }
+    }
     private void OnNoticiasClicked(object sender, EventArgs e)
     {
         // Navegar o mostrar contenido de noticias
     }
 
-    private void OnReportarClicked(object sender, EventArgs e)
+    private async void OnReportarClicked(object sender, EventArgs e)
     {
         // Navegar al reporte de situación
+        await Navigation.PushAsync(new NuevaSituacion());
     }
 
     private void OnMisSituacionesClicked(object sender, EventArgs e)
