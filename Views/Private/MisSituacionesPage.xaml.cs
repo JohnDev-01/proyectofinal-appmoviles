@@ -33,7 +33,26 @@ public partial class MisSituacionesPage : ContentPage
                     var datos = json.GetProperty("datos");
                     var situaciones = new List<SituacionModel>();
 
+
                     foreach (var item in datos.EnumerateArray())
+                    {
+                        var situacion = new SituacionModel();
+
+                        if (item.TryGetProperty("titulo", out var tituloProp))
+                            situacion.titulo = tituloProp.GetString();
+
+                        if (item.TryGetProperty("descripcion", out var descProp))
+                            situacion.descripcion = descProp.GetString();
+
+                        if (item.TryGetProperty("fecha_creacion", out var fechaProp))
+                            situacion.fecha_creacion = fechaProp.GetString();
+
+                        situaciones.Add(situacion);
+                    }
+
+
+
+                    /*foreach (var item in datos.EnumerateArray())
                     {
                         situaciones.Add(new SituacionModel
                         {
@@ -41,7 +60,7 @@ public partial class MisSituacionesPage : ContentPage
                             descripcion = item.GetProperty("descripcion").GetString(),
                             fecha_creacion = item.GetProperty("fecha_creacion").GetString()
                         });
-                    }
+                    }*/
 
                     SituacionesList.ItemsSource = situaciones;
                 }
