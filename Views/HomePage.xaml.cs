@@ -85,27 +85,7 @@ public partial class HomePage : ContentPage
             await DisplayAlert("Permisos necesarios", "Se requieren permisos de cámara y ubicación para continuar.", "OK");
         }
     }
-    private void OnBotonOpcionClicked(object sender, EventArgs e)
-    {
-        if (sender is Button boton && boton.Text != null)
-        {
-            string opcion = boton.Text;
-
-            switch (opcion)
-            {
-                case "Página 1":
-                    // Navega a la página 1
-                    //Navigation.PushAsync(new Pagina1());
-                    break;
-                case "Página 2":
-                    // Navega a la página 2
-                    //Navigation.PushAsync(new Pagina2());
-                    break;
-                    // Y así sucesivamente
-            }
-        }
-    }
-
+   
     private void ImageButton_Clicked(object sender, EventArgs e)
     {
         Application.Current.MainPage = new NavigationPage(new PaginaInicio());
@@ -117,7 +97,7 @@ public partial class HomePage : ContentPage
         {
             switch (boton.Text)
             {
-                case "📰 Noticias privadas (líneas a seguir)":
+                case "📰 Noticias privadas":
                     await Navigation.PushAsync(new NoticiasPrivadasPage());
                     break;
                 case "🚨 Reportar situación":
