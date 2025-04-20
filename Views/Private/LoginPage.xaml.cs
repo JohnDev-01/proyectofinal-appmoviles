@@ -41,9 +41,15 @@ public partial class LoginPage : ContentPage
             if (json.GetProperty("exito").GetBoolean())
             {
                 var token = json.GetProperty("datos").GetProperty("token").GetString();
+
+                var nameUser = (json.GetProperty("datos").GetProperty("nombre").GetString()).Trim() +" "+ (json.GetProperty("datos").GetProperty("apellido").GetString()).Trim();
+
                 _apiService.SetToken(token);
-               
-                Application.Current.MainPage = new NavigationPage(new MenuPrivado()); // Navegar a la página principal
+
+                Preferences.Set("userName", nameUser);
+                Preferences.Set("isLoggedIn", true);
+
+                Application.Current.MainPage = new NavigationPage(new HomePage()); // Navegar a la página principal
                 // Navegar a la página principal
             }
             else

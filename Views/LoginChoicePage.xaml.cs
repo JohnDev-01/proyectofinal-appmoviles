@@ -20,7 +20,10 @@ public partial class LoginChoicePage : ContentPage
     {
         if (Application.Current != null)
         {
-            Application.Current.MainPage = new NavigationPage(new InicioPage(new InicioViewModel()));
+            Preferences.Set("isLoggedIn", false);
+            //Application.Current.MainPage = new NavigationPage(new InicioPage(new InicioViewModel()));
+            Application.Current.MainPage = new NavigationPage(new HomePage()); // Navegar a la página principal
+
         }
     }
 }
