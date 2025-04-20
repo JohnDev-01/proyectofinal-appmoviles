@@ -4,27 +4,45 @@
              xmlns:model="clr-namespace:proyectofinal_appmoviles.Models"
              x:Class="proyectofinal_appmoviles.Views.Public.NoticiasPage"
              Title="Noticias"
-             x:DataType="viewmodel:NoticiasViewModel"
-             x:Name="ThisPage">
-
-    <RefreshView Command="{Binding RefrescarCommand}" IsRefreshing="{Binding IsCargando}">
-        <CollectionView ItemsSource="{Binding Noticias}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:NoticiaModel">
-                    <Frame Margin="10" Padding="10" BackgroundColor="White" CornerRadius="10" HasShadow="True">
-                        <VerticalStackLayout Spacing="5">
-                            <Image Source="{Binding imagen}" HeightRequest="160" Aspect="AspectFill" />
-                            <Label Text="{Binding titulo}" FontAttributes="Bold" FontSize="18" TextColor="#FF6600"/>
-                            <Label Text="{Binding fecha}" FontSize="14" TextColor="Gray"/>
-                            <Label Text="{Binding contenido}" FontSize="14" LineBreakMode="TailTruncation" MaxLines="3"/>
-                        </VerticalStackLayout>
-
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding BindingContext.SeleccionarNoticiaCommand, Source={x:Reference ThisPage}}" CommandParameter="{Binding .}" />
-                        </Frame.GestureRecognizers>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </RefreshView>
+             BackgroundColor="White">
+    <StackLayout Padding="16"
+                 Spacing="12">
+        <Label x:Name="MensajeLabel"
+               Text=""
+               TextColor="Red"
+               IsVisible="False"
+               FontSize="14" />
+        <RefreshView x:Name="NoticiasRefreshView"
+                     IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+                     Command="{Binding RefreshCommand}">
+            <CollectionView x:Name="NoticiasList"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10"
+                               Padding="10"
+                               Margin="5"
+                               BorderColor="#FF7F11"
+                               HasShadow="True">
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="{Binding titulo}"
+                                       FontAttributes="Bold"
+                                       FontSize="16"
+                                       TextColor="#FF7F11" />
+                                <Label Text="{Binding fecha}"
+                                       FontSize="12"
+                                       TextColor="Gray" />
+                                <Image Source="{Binding foto}"
+                                       HeightRequest="180"
+                                       Aspect="AspectFill" />
+                                <Label Text="{Binding contenido}"
+                                       FontSize="13"
+                                       TextColor="#333" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </StackLayout>
 </ContentPage>
