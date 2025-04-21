@@ -25,9 +25,6 @@ public partial class HomePage : ContentPage
                 case "Servicios":
                     await Navigation.PushAsync(new ServiciosPage());
                     break;
-                case "Videos":
-                    await Navigation.PushAsync(new VideosPage());
-                    break;
                 case "Albergues":
                     await Navigation.PushAsync(new AlberguesPage());
                     break;
@@ -51,7 +48,6 @@ public partial class HomePage : ContentPage
         {
             new BotonItem { Texto = "Noticias Públicas" },
             new BotonItem { Texto = "Servicios" },
-            new BotonItem { Texto = "Videos" },
             new BotonItem { Texto = "Albergues" },
             new BotonItem { Texto = "Medidas Preventivas" },
             new BotonItem { Texto = "Miembros" },
