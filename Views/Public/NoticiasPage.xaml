@@ -29,13 +29,13 @@
                                        FontAttributes="Bold"
                                        FontSize="16"
                                        TextColor="#FF7F11" />
-                                <Label Text="{Binding fecha}"
+                                <Label Text="{Binding fecha_publicacion}"
                                        FontSize="12"
                                        TextColor="Gray" />
-                                <Image Source="{Binding foto}"
+                                <Image Source="{Binding imagen}"
                                        HeightRequest="180"
                                        Aspect="AspectFill" />
-                                <Label Text="{Binding contenido}"
+                                <Label Text="{Binding descripcion}"
                                        FontSize="13"
                                        TextColor="#333" />
                             </VerticalStackLayout>

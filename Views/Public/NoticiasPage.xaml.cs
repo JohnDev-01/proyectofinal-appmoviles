@@ -37,7 +37,7 @@ namespace proyectofinal_appmoviles.Views.Public
             var response = await _apiService.GetAsync<NoticiaResponseDto>("noticias.php");
             if (response != null && response.exito)
             {
-               //  NoticiasCollection.ItemsSource = response.datos;
+                NoticiasList.ItemsSource = response.datos;
             }
             else
             {
