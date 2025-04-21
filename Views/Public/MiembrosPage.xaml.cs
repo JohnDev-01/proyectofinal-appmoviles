@@ -1,56 +1,43 @@
-using Microsoft.Maui.Controls;
-using proyectofinal_appmoviles.ViewModels;
-using Microsoft.Maui.ApplicationModel;
-using System;
+using proyectofinal_appmoviles.Models;
+using proyectofinal_appmoviles.Services;
+using System.Collections.ObjectModel;
 
-namespace proyectofinal_appmoviles.Views.Public
+namespace proyectofinal_appmoviles.Views
 {
     public partial class MiembrosPage : ContentPage
     {
-        private readonly MiembrosViewModel _viewModel;
+        private readonly ApiService _apiService = new();
+        public ObservableCollection<MiembroDto> MiembrosLista { get; set; } = new();
 
         public MiembrosPage()
         {
             InitializeComponent();
-            _viewModel = new MiembrosViewModel();
-            BindingContext = _viewModel;
+            BindingContext = this;
+            CargarMiembrosDesdeApi();
         }
 
-        protected override void OnAppearing()
+        private async void CargarMiembrosDesdeApi()
         {
-            base.OnAppearing();
-            _viewModel.LoadMiembrosAsync();
-        }
-
-        private async void OnPhoneClicked(object sender, EventArgs e)
-        {
-            if (sender is ImageButton button && button.CommandParameter is string phoneNumber && !string.IsNullOrWhiteSpace(phoneNumber))
+            try
             {
-                try
+                var response = await _apiService.GetMiembrosAsync();
+
+                if (response != null && response.exito && response.datos != null)
                 {
-                    var uri = new Uri($"tel:{phoneNumber}");
-                    await Launcher.OpenAsync(uri);
+                    MiembrosLista.Clear();
+                    foreach (var miembro in response.datos)
+                    {
+                        MiembrosLista.Add(miembro);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    await DisplayAlert("Error", $"No se pudo abrir el marcador telefónico: {ex.Message}", "OK");
+                    await DisplayAlert("Error", response?.mensaje ?? "No se pudieron cargar los miembros.", "OK");
                 }
             }
-        }
-
-        private async void OnEmailClicked(object sender, EventArgs e)
-        {
-            if (sender is ImageButton button && button.CommandParameter is string email && !string.IsNullOrWhiteSpace(email))
+            catch (Exception ex)
             {
-                try
-                {
-                    var uri = new Uri($"mailto:{email}");
-                    await Launcher.OpenAsync(uri);
-                }
-                catch (Exception ex)
-                {
-                    await DisplayAlert("Error", $"No se pudo abrir el cliente de correo: {ex.Message}", "OK");
-                }
+                await DisplayAlert("Excepción", $"Ocurrió un error: {ex.Message}", "OK");
             }
         }
     }

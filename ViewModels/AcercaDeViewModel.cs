@@ -43,10 +43,10 @@ namespace proyectofinal_appmoviles.ViewModels
         {
             IsLoading = true;
             var response = await _apiService.GetMiembrosAsync();
-            if (response != null && response.Exito && response.Datos != null)
+            if (response != null && response.exito && response.datos != null)
             {
                 Miembros.Clear();
-                foreach (var miembro in response.Datos)
+                foreach (var miembro in response.datos)
                 {
                     Miembros.Add(miembro);
                 }

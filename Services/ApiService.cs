@@ -161,9 +161,10 @@ namespace proyectofinal_appmoviles.Services
 
         // New method to get preventive measures list
         public async Task<Models.MedidaResponseDto?> GetMedidasAsync()
-        {
-            return await GetAsync<Models.MedidaResponseDto>("medidas.php");
-        }
+{
+    return await GetAsync<Models.MedidaResponseDto>("medidas_preventivas.php");
+}
+
 
         // New method to get members list
         public async Task<Models.MiembroResponseDto?> GetMiembrosAsync()

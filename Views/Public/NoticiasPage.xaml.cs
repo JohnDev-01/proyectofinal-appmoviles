@@ -1,7 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 using proyectofinal_appmoviles.Models;
 using proyectofinal_appmoviles.Services;
-using proyectofinal_appmoviles.ViewModels;
 using System.Text.Json;
 
 namespace proyectofinal_appmoviles.Views.Public

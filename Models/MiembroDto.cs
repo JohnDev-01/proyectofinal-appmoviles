@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace proyectofinal_appmoviles.Models
+﻿namespace proyectofinal_appmoviles.Models
 {
-    public class MiembroResponseDto
-    {
-        public bool Exito { get; set; }
-        public List<MiembroDto>? Datos { get; set; }
-        public string? Mensaje { get; set; }
-    }
-
     public class MiembroDto
     {
-        public string? Cedula { get; set; }
-        public string? Nombre { get; set; }
-        public string? Apellido { get; set; }
-        public string? Correo { get; set; }
-        public string? Telefono { get; set; }
-        public string? Cargo { get; set; }  // Added role property
-        public string? Foto { get; set; }   // Added photo/avatar property
-        public string? Telegram { get; set; } // Added Telegram contact property
+        public string id { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string cargo { get; set; }
+        public string foto { get; set; }
+
+        public string NombreCompleto => $"{nombre} {apellido}";
+        public string FotoUrl => $"https://adamix.net/defensa_civil/def/fotos_miembros/{foto}";
+    }
+
+    public class MiembroResponseDto
+    {
+        public bool exito { get; set; }
+        public List<MiembroDto> datos { get; set; }
+        public string mensaje { get; set; }
     }
 }

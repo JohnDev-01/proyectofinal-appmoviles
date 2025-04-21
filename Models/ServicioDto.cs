@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace proyectofinal_appmoviles.Models
+﻿namespace proyectofinal_appmoviles.Models
 {
-    public class ServicioResponseDto
-    {
-        public bool Exito { get; set; }
-        public List<ServicioDto>? Datos { get; set; }
-        public string? Mensaje { get; set; }
-    }
-
     public class ServicioDto
     {
-        public string? Id { get; set; }
-        public string? Nombre { get; set; }
-        public string? Descripcion { get; set; }
+        public string id { get; set; }
+        public string titulo { get; set; }
+        public string descripcion { get; set; }
+        public string icono { get; set; }
     }
 
+    public class ServicioResponseDto
+    {
+        public bool exito { get; set; }
+        public List<ServicioDto> datos { get; set; }
+        public string mensaje { get; set; }
+    }
 }

@@ -1,5 +1,4 @@
 using proyectofinal_appmoviles.Views.Public;
-using proyectofinal_appmoviles.ViewModels;
 using proyectofinal_appmoviles.Views.Private;
 
 namespace proyectofinal_appmoviles.Views;
@@ -22,7 +21,7 @@ public partial class LoginChoicePage : ContentPage
         {
             Preferences.Set("isLoggedIn", false);
             //Application.Current.MainPage = new NavigationPage(new InicioPage(new InicioViewModel()));
-            Application.Current.MainPage = new NavigationPage(new HomePage()); // Navegar a la página principal
+            Application.Current.MainPage = new NavigationPage(new HomePage()); // Navegar a la pï¿½gina principal
 
         }
     }
