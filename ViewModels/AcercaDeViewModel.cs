@@ -14,7 +14,7 @@ namespace proyectofinal_appmoviles.ViewModels
         public AcercaDeViewModel()
         {
 
-            Miembros = new ObservableCollection<MiembroDto>();
+            Miembros = new ObservableCollection<Miembro>();
         }
 
         public async Task LoadMiembrosAsync()

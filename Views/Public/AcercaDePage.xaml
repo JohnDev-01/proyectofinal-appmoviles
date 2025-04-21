@@ -19,7 +19,7 @@
                    HorizontalOptions="Center" 
                    TextColor="White" />
 
-            <CarouselView ItemsSource="{Binding Miembros}"
+            <CarouselView x:Name="carousel"
                           HeightRequest="450"
                           PeekAreaInsets="70">
 
@@ -36,7 +36,8 @@
                                BorderColor="#0033A0">
 
 
-                            <StackLayout Spacing="15" HorizontalOptions="Center">
+                            <StackLayout Spacing="15" HorizontalOptions="Center"
+                                         >
                                 <Image Source="{Binding Foto}" 
                                        HeightRequest="120" 
                                        WidthRequest="120" 
