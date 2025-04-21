@@ -28,7 +28,8 @@ public static class MauiProgram
 		builder.Services.AddTransient<ViewModels.InicioViewModel>();
 		builder.Services.AddTransient<ViewModels.PerfilViewModel>();
 		builder.Services.AddTransient<ViewModels.AjustesViewModel>();
+        builder.Services.AddTransient<ViewModels.AcercaDeViewModel>();
 
-		return builder.Build();
+        return builder.Build();
 	}
 }

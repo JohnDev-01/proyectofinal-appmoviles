@@ -7,67 +7,62 @@ namespace proyectofinal_appmoviles.Views.Public
 {
     public partial class AcercaDePage : ContentPage
     {
-        private readonly AcercaDeViewModel _viewModel;
 
         public AcercaDePage()
         {
             InitializeComponent();
-            _viewModel = new AcercaDeViewModel();
-            BindingContext = _viewModel;
+            BindingContext = new AcercaDeViewModel();
         }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            _viewModel.LoadMiembrosAsync();
-        }
-
-        private async void OnPhoneClicked(object sender, EventArgs e)
-        {
-            if (sender is ImageButton button && button.CommandParameter is string phoneNumber && !string.IsNullOrWhiteSpace(phoneNumber))
-            {
-                try
-                {
-                    var uri = new Uri($"tel:{phoneNumber}");
-                    await Launcher.OpenAsync(uri);
-                }
-                catch (Exception ex)
-                {
-                    await DisplayAlert("Error", $"No se pudo abrir el marcador telefónico: {ex.Message}", "OK");
-                }
-            }
-        }
-
         private async void OnTelegramClicked(object sender, EventArgs e)
         {
-            if (sender is ImageButton button && button.CommandParameter is string telegram && !string.IsNullOrWhiteSpace(telegram))
+            var button = (ImageButton)sender;
+            var link = button.CommandParameter?.ToString();
+
+            if (!string.IsNullOrWhiteSpace(link))
             {
                 try
                 {
-                    var uri = new Uri($"https://t.me/{telegram}");
-                    await Launcher.OpenAsync(uri);
+                    await Launcher.Default.OpenAsync(link);
                 }
                 catch (Exception ex)
                 {
-                    await DisplayAlert("Error", $"No se pudo abrir Telegram: {ex.Message}", "OK");
+                    await DisplayAlert("Error", "No se pudo abrir Telegram: " + ex.Message, "OK");
                 }
             }
         }
 
-        private async void OnEmailClicked(object sender, EventArgs e)
+
+        private void OnPhoneClicked(object sender, EventArgs e)
         {
-            if (sender is ImageButton button && button.CommandParameter is string email && !string.IsNullOrWhiteSpace(email))
+            if (sender is ImageButton button && button.CommandParameter is string phoneNumber)
             {
                 try
                 {
-                    var uri = new Uri($"mailto:{email}");
-                    await Launcher.OpenAsync(uri);
+                    Launcher.OpenAsync($"tel:{phoneNumber}");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    await DisplayAlert("Error", $"No se pudo abrir el cliente de correo: {ex.Message}", "OK");
+                    // Manejo de error si el dispositivo no puede hacer llamadas
+                    DisplayAlert("Error", "No se pudo abrir el marcador.", "OK");
                 }
             }
         }
+
+        
+        private void OnEmailClicked(object sender, EventArgs e)
+        {
+            if (sender is ImageButton button && button.CommandParameter is string email)
+            {
+                try
+                {
+                    Launcher.OpenAsync(new Uri($"mailto:{email}"));
+                }
+                catch (Exception)
+                {
+                    DisplayAlert("Error", "No se pudo abrir la app de correo.", "OK");
+                }
+            }
+        }
+
     }
 }

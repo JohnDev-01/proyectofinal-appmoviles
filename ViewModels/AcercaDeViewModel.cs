@@ -9,56 +9,54 @@ namespace proyectofinal_appmoviles.ViewModels
 {
     public class AcercaDeViewModel : INotifyPropertyChanged
     {
-        private readonly ApiService _apiService;
-
-        private ObservableCollection<MiembroDto> _miembros;
-        public ObservableCollection<MiembroDto> Miembros
-        {
-            get => _miembros;
-            set
-            {
-                _miembros = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _isLoading;
-        public bool IsLoading
-        {
-            get => _isLoading;
-            set
-            {
-                _isLoading = value;
-                OnPropertyChanged();
-            }
-        }
+        public ObservableCollection<Miembro> Miembros { get; set; }
 
         public AcercaDeViewModel()
         {
-            _apiService = new ApiService();
-            Miembros = new ObservableCollection<MiembroDto>();
-        }
-
-        public async Task LoadMiembrosAsync()
-        {
-            IsLoading = true;
-            var response = await _apiService.GetMiembrosAsync();
-            if (response != null && response.Exito && response.Datos != null)
+            Miembros = new ObservableCollection<Miembro>
             {
-                Miembros.Clear();
-                foreach (var miembro in response.Datos)
+                new Miembro
                 {
-                    Miembros.Add(miembro);
+                    Nombre = "Eliezer Palacio Ramos",
+                    Matricula = "2023-1009",
+                    Cargo = "Dev",
+                    Foto = "imge.jpg",
+                    Telefono = "+18495813273",
+                    TelegramLink = "https://t.me/EliezerPalacioRamos"
+                },
+                new Miembro
+                {
+                    Nombre = "Cristal Hernández",
+                    Matricula = "2023-0985",
+                    Cargo = "Dev",
+                    Foto = "imgc.jpg",
+                    Telefono = "+18492604310",
+                    TelegramLink = "https://t.me/CristalOHR1210"
+                },
+                new Miembro
+                {
+                    Nombre = "John Kerlin Silvestre",
+                    Matricula = "2023-1192",
+                    Cargo = "Dev y Líder",
+                    Foto = "imgj.jpg",
+                    Telefono = "+18096063232",
+                    TelegramLink = "https://t.me/johnkerlin"
                 }
-            }
-            IsLoading = false;
+            };
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = "") =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
 
-        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+    public class Miembro
+    {
+        public string Nombre { get; set; }
+        public string Matricula { get; set; }
+        public string Cargo { get; set; }
+        public string Foto { get; set; }
+        public string Telefono { get; set; }
+        public string TelegramLink { get; set; }
     }
 }
