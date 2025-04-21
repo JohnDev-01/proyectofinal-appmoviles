@@ -13,6 +13,13 @@ namespace proyectofinal_appmoviles.ViewModels
 
         public AcercaDeViewModel()
         {
+
+            Miembros = new ObservableCollection<MiembroDto>();
+        }
+
+        public async Task LoadMiembrosAsync()
+        {
+            
             Miembros = new ObservableCollection<Miembro>
             {
                 new Miembro
@@ -26,7 +33,7 @@ namespace proyectofinal_appmoviles.ViewModels
                 },
                 new Miembro
                 {
-                    Nombre = "Cristal Hern·ndez",
+                    Nombre = "Cristal Hern√°ndez",
                     Matricula = "2023-0985",
                     Cargo = "Dev",
                     Foto = "imgc.jpg",
@@ -37,7 +44,7 @@ namespace proyectofinal_appmoviles.ViewModels
                 {
                     Nombre = "John Kerlin Silvestre",
                     Matricula = "2023-1192",
-                    Cargo = "Dev y LÌder",
+                    Cargo = "Dev y L√≠der",
                     Foto = "imgj.jpg",
                     Telefono = "+18096063232",
                     TelegramLink = "https://t.me/johnkerlin"

@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:proyectofinal_appmoviles.ViewModels"
-             x:Class="proyectofinal_appmoviles.Views.Public.MedidasPage"
+             x:Class="proyectofinal_appmoviles.Views.MedidasPage"
              Title="Medidas Preventivas">
 
-    <ContentPage.BindingContext>
-        <viewmodels:MedidasViewModel />
-    </ContentPage.BindingContext>
+    <CollectionView x:Name="ListaMedidas"
+                    Margin="10"
+                    ItemsLayout="VerticalList">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Padding="10" Margin="5" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <VerticalStackLayout>
+                        <Label Text="{Binding titulo}" FontSize="18" FontAttributes="Bold" />
+                        <Label Text="{Binding Descripcion}" FontSize="14" />
+                        <Image Source="{Binding imagen, StringFormat='https://adamix.net/defensa_civil/def/{0}'}"
+                               HeightRequest="150"
+                               Aspect="AspectFill"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 
-    <StackLayout Padding="10" Spacing="10">
-
-        <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" />
-
-        <Label Text="{Binding ErrorMessage}" TextColor="Red" IsVisible="{Binding IsError}" />
-
-        <Label Text="No hay medidas preventivas disponibles." IsVisible="{Binding IsEmpty}" />
-
-        <CollectionView x:Name="collectionView" ItemsSource="{Binding Medidas}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Margin="5" Padding="10" BorderColor="LightGray" CornerRadius="5" HasShadow="True">
-                        <Label Text="{Binding Descripcion}" FontSize="Medium" />
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-
-    </StackLayout>
 </ContentPage>

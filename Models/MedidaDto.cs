@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace proyectofinal_appmoviles.Models
+﻿namespace proyectofinal_appmoviles.Models
 {
+    public class MedidaDto
+{
+    public string id { get; set; }
+    public string titulo { get; set; }
+    public string Descripcion { get; set; }
+    public string imagen { get; set; }
+}
+
+
     public class MedidaResponseDto
     {
-        public bool Exito { get; set; }
-        public List<MedidaDto>? Datos { get; set; }
-        public string? Mensaje { get; set; }
+        public bool exito { get; set; }
+        public List<MedidaDto> datos { get; set; }
+        public string mensaje { get; set; }
     }
-
-    public class MedidaDto
-    {
-        public string? Id { get; set; }
-        public string? Descripcion { get; set; }
-    }
-
 }
