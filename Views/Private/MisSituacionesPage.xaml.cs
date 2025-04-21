@@ -52,15 +52,7 @@ public partial class MisSituacionesPage : ContentPage
 
 
 
-                    /*foreach (var item in datos.EnumerateArray())
-                    {
-                        situaciones.Add(new SituacionModel
-                        {
-                            titulo = item.GetProperty("titulo").GetString(),
-                            descripcion = item.GetProperty("descripcion").GetString(),
-                            fecha_creacion = item.GetProperty("fecha_creacion").GetString()
-                        });
-                    }*/
+                   
 
                     SituacionesList.ItemsSource = situaciones;
                 }
