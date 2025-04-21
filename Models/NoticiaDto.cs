@@ -2,12 +2,19 @@
 
 namespace proyectofinal_appmoviles.Models
 {
-    public class NoticiaModel
+    public class NoticiaDto
     {
-        public int id { get; set; }
-        public required string titulo { get; set; }
-        public required string fecha { get; set; }
-        public required string contenido { get; set; }
-        public required string imagen { get; set; }
+        public string id { get; set; }
+        public string titulo { get; set; }
+        public string descripcion { get; set; }
+        public string imagen { get; set; }
+        public string fecha_publicacion { get; set; }
+    }
+
+    public class NoticiaResponseDto
+    {
+        public bool exito { get; set; }
+        public List<NoticiaDto> datos { get; set; }
+        public string mensaje { get; set; }
     }
 }
