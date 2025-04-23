@@ -1,42 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:proyectofinal_appmoviles.Models"
              x:Class="proyectofinal_appmoviles.Views.Public.NoticiasPage"
              Title="Noticias"
-             BackgroundColor="White">
-    <StackLayout Padding="16"
-                 Spacing="12">
+             BackgroundColor="#f2f2f2">
+
+    <StackLayout Padding="16" Spacing="12">
         <Label x:Name="MensajeLabel"
                Text=""
                TextColor="Red"
                IsVisible="False"
                FontSize="14" />
+
         <RefreshView x:Name="NoticiasRefreshView"
-                     IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
-                     Command="{Binding RefreshCommand}">
+                     IsRefreshing="False">
             <CollectionView x:Name="NoticiasList"
                             SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame CornerRadius="10"
-                               Padding="10"
-                               Margin="5"
+                        <Frame CornerRadius="12"
+                               Padding="15"
+                               Margin="0,8"
+                               BackgroundColor="White"
                                BorderColor="#FF7F11"
                                HasShadow="True">
-                            <VerticalStackLayout Spacing="8">
+                            <VerticalStackLayout Spacing="10">
                                 <Label Text="{Binding titulo}"
                                        FontAttributes="Bold"
-                                       FontSize="16"
-                                       TextColor="#FF7F11" />
+                                       FontSize="18"
+                                       TextColor="#222222" />
+
                                 <Label Text="{Binding fecha_publicacion}"
-                                       FontSize="12"
-                                       TextColor="Gray" />
-                                <Image Source="{Binding imagen}"
-                                       HeightRequest="180"
-                                       Aspect="AspectFill" />
-                                <Label Text="{Binding descripcion}"
                                        FontSize="13"
-                                       TextColor="#333" />
+                                       TextColor="Gray" />
+
+                                <Frame CornerRadius="10"
+                                       Padding="0"
+                                       HasShadow="False"
+                                       IsClippedToBounds="True">
+                                    <Image Source="{Binding imagen}"
+                                           HeightRequest="160"
+                                           Aspect="AspectFill"
+                                           BackgroundColor="#ddd" />
+                                </Frame>
+
+                                <Label Text="{Binding descripcion}"
+                                       FontSize="14"
+                                       TextColor="#333333" />
                             </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>

@@ -1,21 +1,15 @@
-using Microsoft.Maui.Controls;
 using proyectofinal_appmoviles.Models;
 
-namespace proyectofinal_appmoviles.Views.Public
-{
-    public partial class MedidaDetailPage : ContentPage
-    {
-        public MedidaDetailPage()
-        {
-            InitializeComponent();
-        }
+namespace proyectofinal_appmoviles.Views;
 
-        public MedidaDetailPage(MedidaDto medida) : this()
-        {
-            if (medida != null)
-            {
-                DescripcionLabel.Text = medida.Descripcion ?? "No hay descripción disponible.";
-            }
-        }
+public partial class DetalleMedidaPage : ContentPage
+{
+    public DetalleMedidaPage(MedidaDto medida)
+    {
+        InitializeComponent();
+
+        lblTitulo.Text = medida.titulo;
+        lblDescripcion.Text = medida.descripcion;
+        imgMedida.Source = medida.foto;
     }
 }

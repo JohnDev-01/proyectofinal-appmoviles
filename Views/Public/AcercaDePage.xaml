@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:proyectofinal_appmoviles.ViewModels"
              x:Class="proyectofinal_appmoviles.Views.Public.AcercaDePage"
              Title="Acerca de"
-                          BackgroundColor="#E65C00"
->
-    <ContentPage.BindingContext>
-        <viewmodels:AcercaDeViewModel />
-    </ContentPage.BindingContext>
+             BackgroundColor="#E65C00">
 
     <ScrollView>
         <StackLayout Padding="30" Spacing="20">
@@ -23,11 +18,8 @@
                           HeightRequest="450"
                           PeekAreaInsets="70">
 
-
                 <CarouselView.ItemTemplate>
-
                     <DataTemplate>
-
                         <Frame Margin="10"
                                Padding="20"
                                CornerRadius="20"
@@ -35,16 +27,12 @@
                                BackgroundColor="White"
                                BorderColor="#0033A0">
 
-
-                            <StackLayout Spacing="15" HorizontalOptions="Center"
-                                         >
+                            <StackLayout Spacing="15" HorizontalOptions="Center">
                                 <Image Source="{Binding Foto}" 
                                        HeightRequest="120" 
                                        WidthRequest="120" 
                                        Aspect="AspectFill" 
-                                       BackgroundColor="#0033A0" 
-                                       />
-
+                                       BackgroundColor="#0033A0" />
 
                                 <Label Text="{Binding Nombre}" 
                                        FontSize="Medium" 
@@ -62,8 +50,6 @@
                                        HorizontalOptions="Center"
                                        TextColor="#0033A0"/>
 
-
-
                                 <StackLayout Orientation="Horizontal" 
                                              HorizontalOptions="Center"
                                              Spacing="10"
@@ -78,10 +64,6 @@
                                            VerticalOptions="Center"/>
                                 </StackLayout>
 
-
-
-
-
                                 <StackLayout Orientation="Horizontal" 
                                              HorizontalOptions="Center"
                                              Spacing="10"
@@ -95,8 +77,6 @@
                                            TextColor="#0033A0" 
                                            VerticalOptions="Center"/>
                                 </StackLayout>
-                                    
-                                    
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

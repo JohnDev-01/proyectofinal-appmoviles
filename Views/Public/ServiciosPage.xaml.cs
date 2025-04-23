@@ -7,34 +7,33 @@ namespace proyectofinal_appmoviles.Views
     public partial class ServiciosPage : ContentPage
     {
         private readonly ApiService _apiService = new ApiService();
-        private ObservableCollection<ServicioDto> _servicios;
+        private readonly ObservableCollection<ServicioDto> _servicios = new();
 
         public ServiciosPage()
         {
             InitializeComponent();
-            _servicios = new ObservableCollection<ServicioDto>();
             ServiciosCollection.ItemsSource = _servicios;
-            CargarServicios();
+            _ = CargarServicios();
         }
 
-        private async void CargarServicios()
+        private async Task CargarServicios()
         {
             var response = await _apiService.GetServiciosAsync();
 
             if (response != null && response.exito && response.datos != null)
             {
                 _servicios.Clear();
+
                 foreach (var servicio in response.datos)
                 {
-                    // Agrega ruta completa al icono si es necesario
-                    servicio.icono = $"https://adamix.net/defensa_civil/def/images/{servicio.icono}";
                     _servicios.Add(servicio);
                 }
             }
             else
             {
-                await DisplayAlert("Error", "No se pudieron cargar los servicios", "OK");
+                await DisplayAlert("Error", response?.mensaje ?? "No se pudieron cargar los servicios", "OK");
             }
+
         }
     }
 }

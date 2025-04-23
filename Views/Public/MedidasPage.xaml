@@ -2,24 +2,64 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="proyectofinal_appmoviles.Views.MedidasPage"
-             Title="Medidas Preventivas">
+             Title="Medidas Preventivas"
+             BackgroundColor="White">
 
-    <CollectionView x:Name="ListaMedidas"
-                    Margin="10"
-                    ItemsLayout="VerticalList">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame Padding="10" Margin="5" CornerRadius="10" HasShadow="True" BackgroundColor="White">
-                    <VerticalStackLayout>
-                        <Label Text="{Binding titulo}" FontSize="18" FontAttributes="Bold" />
-                        <Label Text="{Binding Descripcion}" FontSize="14" />
-                        <Image Source="{Binding imagen, StringFormat='https://adamix.net/defensa_civil/def/{0}'}"
-                               HeightRequest="150"
-                               Aspect="AspectFill"/>
-                    </VerticalStackLayout>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    <ScrollView>
+        <VerticalStackLayout Padding="0">
 
+            <!-- Encabezado -->
+            <Grid HeightRequest="180" BackgroundColor="#FF8000">
+                <Grid.Clip>
+                    <PathGeometry Figures="M0,0 L0,180 Q200,220 400,180 L400,0 Z" />
+                </Grid.Clip>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="logo_defensa.png" WidthRequest="90" HeightRequest="90"/>
+                    <Label Text="Medidas Preventivas"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Loading -->
+            <ActivityIndicator x:Name="loadingIndicator"
+                               IsRunning="False"
+                               IsVisible="False"
+                               Color="DarkOrange"
+                               Margin="0,10"
+                               HorizontalOptions="Center" />
+
+            <!-- Lista -->
+            <CollectionView x:Name="medidasCollectionView"
+                            SelectionMode="Single"
+                            SelectionChanged="OnMedidaSeleccionada"
+                            Margin="15,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#FFA500"
+                               BackgroundColor="#FFFDF3"
+                               CornerRadius="12"
+                               Padding="15"
+                               Margin="5"
+                               HasShadow="True">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding titulo}"
+                                       FontSize="17"
+                                       TextColor="Black"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding descripcion}"
+                                       FontSize="14"
+                                       TextColor="Gray"
+                                       MaxLines="3"
+                                       LineBreakMode="TailTruncation"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

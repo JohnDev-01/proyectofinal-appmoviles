@@ -1,44 +1,44 @@
 using proyectofinal_appmoviles.Models;
 using proyectofinal_appmoviles.Services;
-using System.Collections.ObjectModel;
 
-namespace proyectofinal_appmoviles.Views
+namespace proyectofinal_appmoviles.Views;
+
+public partial class MiembrosPage : ContentPage
 {
-    public partial class MiembrosPage : ContentPage
+    private readonly ApiService _apiService = new();
+
+    public MiembrosPage()
     {
-        private readonly ApiService _apiService = new();
-        public ObservableCollection<MiembroDto> MiembrosLista { get; set; } = new();
+        InitializeComponent();
+        CargarMiembros();
+    }
 
-        public MiembrosPage()
+    private async void CargarMiembros()
+    {
+        try
         {
-            InitializeComponent();
-            BindingContext = this;
-            CargarMiembrosDesdeApi();
+            loadingIndicator.IsVisible = true;
+            loadingIndicator.IsRunning = true;
+
+            var response = await _apiService.GetMiembrosAsync();
+
+            if (response?.exito == true && response.datos != null)
+            {
+                miembrosCollectionView.ItemsSource = response.datos;
+            }
+            else
+            {
+                await DisplayAlert("Advertencia", "No se encontraron miembros para mostrar.", "OK");
+            }
         }
-
-        private async void CargarMiembrosDesdeApi()
+        catch (Exception ex)
         {
-            try
-            {
-                var response = await _apiService.GetMiembrosAsync();
-
-                if (response != null && response.exito && response.datos != null)
-                {
-                    MiembrosLista.Clear();
-                    foreach (var miembro in response.datos)
-                    {
-                        MiembrosLista.Add(miembro);
-                    }
-                }
-                else
-                {
-                    await DisplayAlert("Error", response?.mensaje ?? "No se pudieron cargar los miembros.", "OK");
-                }
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Excepción", $"Ocurrió un error: {ex.Message}", "OK");
-            }
+            await DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
+        }
+        finally
+        {
+            loadingIndicator.IsVisible = false;
+            loadingIndicator.IsRunning = false;
         }
     }
 }
