@@ -15,7 +15,7 @@
                 </Grid.Clip>
                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                     <Image Source="logo_defensa.png" WidthRequest="100" HeightRequest="100"/>
-                    <Label Text="Defensa Civil App"
+                    <Label Text="Defensa Civil App "
                            FontSize="20"
                            FontAttributes="Bold"
                            TextColor="White"
