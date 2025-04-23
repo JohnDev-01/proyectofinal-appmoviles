@@ -7,7 +7,7 @@ namespace proyectofinal_appmoviles.Views;
 
 public class BotonItem
 {
-    public string Texto { get; set; }
+    public required string Texto { get; set; }
 }
 public partial class HomePage : ContentPage
 {
@@ -37,6 +37,9 @@ public partial class HomePage : ContentPage
                 case "Quiero ser voluntario":
                     await Navigation.PushAsync(new QuieroSerVoluntarioPage());
                     break;
+                case "Historia":
+                    await Navigation.PushAsync(new HistoryPage());
+                    break;
                 case "Acerca de":
                     await Navigation.PushAsync(new AcercaDePage());
                     break;
@@ -52,7 +55,8 @@ public partial class HomePage : ContentPage
             new BotonItem { Texto = "Medidas Preventivas" },
             new BotonItem { Texto = "Miembros" },
             new BotonItem { Texto = "Quiero ser voluntario" },
-            new BotonItem { Texto = "Acerca de" }
+            new BotonItem { Texto = "Historia" },
+            new BotonItem { Texto = "Acerca de" },
         };
 
         BindingContext = this;

@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="proyectofinal_appmoviles.Views.Public.MedidaDetailPage"
-             Title="Detalle de Medida">
+             x:Class="proyectofinal_appmoviles.Views.DetalleMedidaPage"
+             Title="Detalle de Medida"
+             BackgroundColor="#FFFDF3">
 
-    <ScrollView Padding="10">
-        <Label x:Name="DescripcionLabel" FontSize="Medium" TextColor="Black" />
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Título -->
+            <Label x:Name="lblTitulo"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="#FF8000"
+                   HorizontalOptions="Center"
+                   TextTransform="Uppercase"/>
+
+            <!-- Imagen -->
+            <Frame HasShadow="True" CornerRadius="15" Padding="0" BackgroundColor="White">
+                <Image x:Name="imgMedida"
+                       HeightRequest="200"
+                       Aspect="AspectFill"
+                       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="LightGray"/>
+            </Frame>
+
+            <!-- Descripción -->
+            <Label x:Name="lblDescripcion"
+                   FontSize="15"
+                   TextColor="Black"
+                   LineBreakMode="WordWrap"
+                   Padding="10,0"/>
+
+        </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

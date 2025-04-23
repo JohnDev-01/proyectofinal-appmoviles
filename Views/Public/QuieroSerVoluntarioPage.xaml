@@ -1,49 +1,91 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:proyectofinal_appmoviles.ViewModels"
              x:Class="proyectofinal_appmoviles.Views.Public.QuieroSerVoluntarioPage"
-             Title="Quiero ser voluntario">
-
-    <ContentPage.BindingContext>
-        <viewmodels:QuieroSerVoluntarioViewModel />
-    </ContentPage.BindingContext>
+             Title="Quiero ser voluntario"
+             BackgroundColor="White">
 
     <ScrollView>
-        <StackLayout Padding="10" Spacing="10">
-            <Label Text="Formulario para ser Voluntario" 
-                   FontAttributes="Bold" 
-                   FontSize="24" 
-                   HorizontalOptions="Center" />
+        <VerticalStackLayout>
 
-            <!-- Form Fields -->
-            <Entry Placeholder="Cédula" Text="{Binding Cedula}" Keyboard="Numeric" />
-            <Label Text="{Binding CedulaError}" TextColor="Red" FontSize="12" IsVisible="{Binding CedulaError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+            <!-- Encabezado -->
+            <Grid HeightRequest="220" BackgroundColor="#FF8000" Padding="20">
+                <Grid.Clip>
+                    <PathGeometry Figures="M0,0 L0,200 Q200,250 400,200 L400,0 Z" />
+                </Grid.Clip>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="logo_defensa.png" WidthRequest="100" HeightRequest="100"/>
+                    <Label Text="Defensa Civil App "
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0"/>
+                </VerticalStackLayout>
+            </Grid>
 
-            <Entry Placeholder="Nombre" Text="{Binding Nombre}" />
-            <Label Text="{Binding NombreError}" TextColor="Red" FontSize="12" IsVisible="{Binding NombreError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+            <!-- Formulario -->
+            <VerticalStackLayout Padding="20" Spacing="15">
+                <Label Text="Formulario para ser Voluntario"
+                       FontAttributes="Bold"
+                       FontSize="24"
+                       HorizontalOptions="Center"
+                       TextColor="Black"/>
 
-            <Entry Placeholder="Apellido" Text="{Binding Apellido}" />
-            <Label Text="{Binding ApellidoError}" TextColor="Red" FontSize="12" IsVisible="{Binding ApellidoError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+                <!-- Entradas con Frame (para borde redondeado y color) -->
+                <Frame BackgroundColor="#FFE5B4" CornerRadius="10" Padding="10">
+                    <Entry x:Name="cedulaEntry" Placeholder="Cédula" Keyboard="Numeric" />
+                </Frame>
 
-            <Entry Placeholder="Correo" Text="{Binding Correo}" Keyboard="Email" />
-            <Label Text="{Binding CorreoError}" TextColor="Red" FontSize="12" IsVisible="{Binding CorreoError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+                <Frame BackgroundColor="#FFE5B4" CornerRadius="10" Padding="10">
+                    <Entry x:Name="nombreEntry" Placeholder="Nombre" />
+                </Frame>
 
-            <Entry Placeholder="Teléfono" Text="{Binding Telefono}" Keyboard="Telephone" />
-            <Label Text="{Binding TelefonoError}" TextColor="Red" FontSize="12" IsVisible="{Binding TelefonoError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+                <Frame BackgroundColor="#FFE5B4" CornerRadius="10" Padding="10">
+                    <Entry x:Name="apellidoEntry" Placeholder="Apellido" />
+                </Frame>
 
-            <Entry Placeholder="Contraseña" Text="{Binding Contrasena}" IsPassword="True" />
-            <Label Text="{Binding ContrasenaError}" TextColor="Red" FontSize="12" IsVisible="{Binding ContrasenaError, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+                <Frame BackgroundColor="#FFE5B4" CornerRadius="10" Padding="10">
+                    <Entry x:Name="correoEntry" Placeholder="Correo" Keyboard="Email" />
+                </Frame>
 
-            <!-- Submit Button -->
-            <Button Text="Enviar Solicitud" Command="{Binding SubmitCommand}" IsEnabled="{Binding IsSubmitting, Converter={StaticResource InverseBooleanConverter}}" />
+                <Frame BackgroundColor="#FFE5B4" CornerRadius="10" Padding="10">
+                    <Entry x:Name="telefonoEntry" Placeholder="Teléfono" Keyboard="Telephone" />
+                </Frame>
 
-            <!-- Loading Indicator -->
-            <ActivityIndicator IsRunning="{Binding IsSubmitting}" IsVisible="{Binding IsSubmitting}" />
+                <Frame BackgroundColor="#FFE5B4" CornerRadius="10" Padding="10">
+                    <Entry x:Name="claveEntry" Placeholder="Contraseña" IsPassword="True" />
+                </Frame>
 
-            <!-- Success and Error Messages -->
-            <Label Text="{Binding SuccessMessage}" TextColor="Green" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding SuccessMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
-            <Label Text="{Binding ErrorMessage}" TextColor="Red" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
-        </StackLayout>
+                <!-- Botón -->
+                <Button x:Name="enviarButton"
+                        Text="Enviar Solicitud"
+                        BackgroundColor="#FF8000"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        CornerRadius="10"
+                        Clicked="OnEnviarClicked" />
+
+                <!-- Cargando -->
+                <ActivityIndicator x:Name="loadingIndicator"
+                                   Color="DarkOrange"
+                                   IsRunning="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="Center" />
+
+                <!-- Mensajes -->
+                <Label x:Name="successLabel"
+                       TextColor="Green"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       IsVisible="False"/>
+                <Label x:Name="errorLabel"
+                       TextColor="Red"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       IsVisible="False"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

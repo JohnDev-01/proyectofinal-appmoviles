@@ -1,20 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="proyectofinal_appmoviles.Views.ServiciosPage"
-             Title="Servicios">
+             Title="Servicios"
+             BackgroundColor="#f2f2f2">
 
-    <CollectionView x:Name="ServiciosCollection" ItemsSource="{Binding}" Margin="10">
+    <CollectionView x:Name="ServiciosCollection"
+                    Margin="10"
+                    ItemsLayout="VerticalList">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
-                    <StackLayout>
-                        <Label Text="{Binding titulo}" FontAttributes="Bold" FontSize="18"/>
-                        <Label Text="{Binding descripcion}" FontSize="14"/>
-                        <Image Source="{Binding icono}" HeightRequest="50"/>
-                    </StackLayout>
+                <Frame CornerRadius="12"
+                       Margin="0,10"
+                       Padding="0"
+                       BackgroundColor="White"
+                       BorderColor="#FF7F11"
+                       HasShadow="True">
+                    <VerticalStackLayout>
+                        <!-- Imagen de cabecera -->
+                        <Image Source="{Binding foto}"
+                               HeightRequest="180"
+                               Aspect="AspectFill"
+                               BackgroundColor="#ddd"
+                               />
+
+                        <!-- Contenido -->
+                        <StackLayout Padding="15">
+                            <Label Text="{Binding nombre}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#222" />
+
+                            <Label Text="{Binding descripcion}"
+                                   FontSize="14"
+                                   TextColor="#444"
+                                   LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </VerticalStackLayout>
                 </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
-
 </ContentPage>

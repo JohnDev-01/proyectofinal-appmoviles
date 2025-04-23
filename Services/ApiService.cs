@@ -43,7 +43,11 @@ namespace proyectofinal_appmoviles.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();
-                    return JsonSerializer.Deserialize<T>(json);
+                    var options = new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    };
+                    return JsonSerializer.Deserialize<T>(json, options);
                 }
                 else
                 {
@@ -161,10 +165,9 @@ namespace proyectofinal_appmoviles.Services
 
         // New method to get preventive measures list
         public async Task<Models.MedidaResponseDto?> GetMedidasAsync()
-{
-    return await GetAsync<Models.MedidaResponseDto>("medidas_preventivas.php");
-}
-
+        {
+            return await GetAsync<Models.MedidaResponseDto>("medidas_preventivas.php");
+        }
 
         // New method to get members list
         public async Task<Models.MiembroResponseDto?> GetMiembrosAsync()
@@ -179,9 +182,18 @@ namespace proyectofinal_appmoviles.Services
         }
 
         // New method to get albergues list
-        public async Task<Models.AlbergueResponseDto?> GetAlberguesAsync()
+        public async Task<AlbergueResponseDto?> GetAlberguesAsync()
         {
-            return await GetAsync<Models.AlbergueResponseDto>("albergues.php");
+            var response = await _httpClient.GetAsync("albergues.php");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<AlbergueResponseDto>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            }
+
+            return null;
         }
+
     }
 }

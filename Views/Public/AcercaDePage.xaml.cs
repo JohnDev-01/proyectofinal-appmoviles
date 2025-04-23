@@ -1,8 +1,8 @@
 using Microsoft.Maui.Controls;
-using proyectofinal_appmoviles.ViewModels;
 using Microsoft.Maui.ApplicationModel;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace proyectofinal_appmoviles.Views.Public
 {
@@ -13,99 +13,65 @@ namespace proyectofinal_appmoviles.Views.Public
         public AcercaDePage()
         {
             InitializeComponent();
-            //BindingContext = new AcercaDeViewModel();
         }
-        protected override async void OnAppearing()
+
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            await LoadMiembrosAsync();
+            LoadMiembros();
         }
-        public async Task LoadMiembrosAsync()
+
+        private void LoadMiembros()
         {
-
-            Miembros = new ObservableCollection<Miembro>
+            try
             {
-                new Miembro
+                Miembros = new ObservableCollection<Miembro>
                 {
-                    Nombre = "Eliezer Palacio Ramos",
-                    Matricula = "2023-1009",
-                    Cargo = "Dev",
-                    Foto = "imge.jpg",
-                    Telefono = "+18495813273",
-                    TelegramLink = "https://t.me/EliezerPalacioRamos"
-                },
-                new Miembro
-                {
-                    Nombre = "Cristal Hern·ndez",
-                    Matricula = "2023-0985",
-                    Cargo = "Dev",
-                    Foto = "imgc.jpg",
-                    Telefono = "+18492604310",
-                    TelegramLink = "https://t.me/CristalOHR1210"
-                },
-                new Miembro
-                {
-                    Nombre = "John Kerlin Silvestre",
-                    Matricula = "2023-1192",
-                    Cargo = "Dev y LÌder",
-                    Foto = "imgj.jpg",
-                    Telefono = "+18096063232",
-                    TelegramLink = "https://t.me/johnkerlin"
-                }
-            };
+                    new Miembro
+                    {
+                        Nombre = "Eliezer Palacio Ramos",
+                        Matricula = "2023-1009",
+                        Cargo = "Dev",
+                        Foto = "imge.jpg",
+                        Telefono = "+18495813273",
+                        TelegramLink = "https://t.me/EliezerPalacioRamos"
+                    },
+                    new Miembro
+                    {
+                        Nombre = "Cristal Hern√°ndez",
+                        Matricula = "2023-0985",
+                        Cargo = "Dev",
+                        Foto = "imgc.jpg",
+                        Telefono = "+18492604310",
+                        TelegramLink = "https://t.me/CristalOHR1210"
+                    },
+                    new Miembro
+                    {
+                        Nombre = "John Kerlin Silvestre",
+                        Matricula = "2023-1192",
+                        Cargo = "Dev y L√≠der",
+                        Foto = "imgj.jpg",
+                        Telefono = "+18096063232",
+                        TelegramLink = "https://t.me/johnkerlin"
+                    }
+                };
 
-            carousel.ItemsSource = Miembros;
-        }
-        private async void OnTelegramClicked(object sender, EventArgs e)
-        {
-            var button = (ImageButton)sender;
-            var link = button.CommandParameter?.ToString();
-
-            if (!string.IsNullOrWhiteSpace(link))
+                carousel.ItemsSource = Miembros;
+            }
+            catch (Exception ex)
             {
-                try
-                {
-                    await Launcher.Default.OpenAsync(link);
-                }
-                catch (Exception ex)
-                {
-                    await DisplayAlert("Error", "No se pudo abrir Telegram: " + ex.Message, "OK");
-                }
+                DisplayAlert("Error", "Ocurri√≥ un problema al cargar los miembros: " + ex.Message, "OK");
             }
         }
+    }
 
-
-        private void OnPhoneClicked(object sender, EventArgs e)
-        {
-            if (sender is ImageButton button && button.CommandParameter is string phoneNumber)
-            {
-                try
-                {
-                    Launcher.OpenAsync($"tel:{phoneNumber}");
-                }
-                catch (Exception)
-                {
-                    // Manejo de error si el dispositivo no puede hacer llamadas
-                    DisplayAlert("Error", "No se pudo abrir el marcador.", "OK");
-                }
-            }
-        }
-
-        
-        private void OnEmailClicked(object sender, EventArgs e)
-        {
-            if (sender is ImageButton button && button.CommandParameter is string email)
-            {
-                try
-                {
-                    Launcher.OpenAsync(new Uri($"mailto:{email}"));
-                }
-                catch (Exception)
-                {
-                    DisplayAlert("Error", "No se pudo abrir la app de correo.", "OK");
-                }
-            }
-        }
-
+    public class Miembro
+    {
+        public string Nombre { get; set; }
+        public string Matricula { get; set; }
+        public string Cargo { get; set; }
+        public string Foto { get; set; }
+        public string Telefono { get; set; }
+        public string TelegramLink { get; set; }
     }
 }

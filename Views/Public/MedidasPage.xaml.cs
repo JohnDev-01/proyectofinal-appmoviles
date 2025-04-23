@@ -15,15 +15,38 @@ public partial class MedidasPage : ContentPage
 
     private async void CargarMedidas()
     {
-        var resultado = await _apiService.GetMedidasAsync();
+        try
+        {
+            loadingIndicator.IsRunning = true;
+            loadingIndicator.IsVisible = true;
 
-        if (resultado != null && resultado.exito)
-        {
-            ListaMedidas.ItemsSource = resultado.datos;
+            var response = await _apiService.GetMedidasAsync();
+            if (response?.exito == true && response.datos != null && response.datos.Any())
+            {
+                medidasCollectionView.ItemsSource = response.datos;
+            }
+            else
+            {
+                await DisplayAlert("Advertencia", "No hay medidas disponibles para mostrar.", "OK");
+            }
         }
-        else
+        catch (Exception ex)
         {
-            await DisplayAlert("Error", "No se pudieron obtener las medidas preventivas.", "OK");
+            await DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
+        }
+        finally
+        {
+            loadingIndicator.IsRunning = false;
+            loadingIndicator.IsVisible = false;
+        }
+    }
+
+    private async void OnMedidaSeleccionada(object sender, SelectionChangedEventArgs e)
+    {
+        if (e.CurrentSelection.FirstOrDefault() is MedidaDto medida)
+        {
+            await Navigation.PushAsync(new DetalleMedidaPage(medida));
+            medidasCollectionView.SelectedItem = null;
         }
     }
 }

@@ -2,29 +2,62 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="proyectofinal_appmoviles.Views.Public.HistoryPage"
-             Title="HistoryPage">
+             Title="Historia"
+             BackgroundColor="White">
+
     <ScrollView>
-        <VerticalStackLayout Padding="20"
-                             Spacing="20">
-            <!-- Título de la Página -->
-            <Label Text="Historia de la Defensa Civil"
-                   FontSize="24"
-                   HorizontalOptions="Center" />
-            <!-- Texto informativo de la historia -->
-            <Label Text="La Defensa Civil se creó con el objetivo de prevenir y responder ante desastres. Con una trayectoria que abarca décadas, ha evolucionado para incluir a la comunidad en la gestión de emergencias y la protección civil. [Puedes ampliar el texto con más datos relevantes y resumidos]."
-                   FontSize="16"
-                   TextColor="Black"
-                   HorizontalOptions="FillAndExpand"
-                   LineBreakMode="WordWrap" />
-            <!-- Sección del video -->
-            <Label Text="Video: La historia de la Defensa Civil"
-                   FontSize="20"
-                   HorizontalOptions="Center" />
-            <!-- WebView para embeber el video de YouTube -->
-            <WebView x:Name="YoutubeVideo"
-                     HeightRequest="300"
-                     WidthRequest="500"
-                     HorizontalOptions="Center" />
+        <VerticalStackLayout>
+
+            <!-- Encabezado con curva -->
+            <Grid HeightRequest="220" BackgroundColor="#FF8000" Padding="20">
+                <Grid.Clip>
+                    <PathGeometry Figures="M0,0 L0,200 Q200,250 400,200 L400,0 Z" />
+                </Grid.Clip>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="logo_defensa.png" WidthRequest="100" HeightRequest="100" />
+                    <Label Text="Defensa Civil App"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Contenido principal -->
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- Título -->
+                <Label Text="Historia de la Defensa Civil"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       HorizontalOptions="Center" />
+
+                <!-- Texto de historia -->
+                <Frame BackgroundColor="#FFE5B4" CornerRadius="15" Padding="15">
+                    <Label Text="La Defensa Civil se creó con el objetivo de prevenir y responder ante desastres. Con una trayectoria que abarca décadas, ha evolucionado para incluir a la comunidad en la gestión de emergencias y la protección civil. La institución se ha consolidado como una pieza clave en la mitigación de riesgos y respuesta rápida, gracias al esfuerzo coordinado entre profesionales, voluntarios y autoridades nacionales."
+                           FontSize="16"
+                           TextColor="Black"
+                           LineBreakMode="WordWrap" />
+                </Frame>
+
+                <!-- Subtítulo del video -->
+                <Label Text="Video: La historia de la Defensa Civil"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="Black" />
+
+                <!-- Video embebido (YouTube) -->
+                <Frame Padding="0" CornerRadius="15" HasShadow="True">
+                    <WebView x:Name="YoutubeVideo"
+                             HeightRequest="300"
+                             WidthRequest="500"
+                             Source="https://www.youtube.com/embed/UZFOYcKWhk8"
+                             HorizontalOptions="Center" />
+                </Frame>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
